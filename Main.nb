@@ -1,0 +1,797 @@
+(* Content-type: application/vnd.wolfram.mathematica *)
+
+(*** Wolfram Notebook File ***)
+(* http://www.wolfram.com/nb *)
+
+(* CreatedBy='Mathematica 11.3' *)
+
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[       158,          7]
+NotebookDataLength[     31763,        789]
+NotebookOptionsPosition[     31013,        769]
+NotebookOutlinePosition[     31386,        785]
+CellTagsIndexPosition[     31343,        782]
+WindowFrame->Normal*)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"Importer", "[", "file_", "]"}], ":=", 
+  RowBox[{"Module", "[", 
+   RowBox[{
+    RowBox[{"{", 
+     RowBox[{
+      RowBox[{"indata", "=", 
+       RowBox[{"{", "}"}]}], ",", 
+      RowBox[{"outdata", "=", 
+       RowBox[{"{", "}"}]}], ",", "l"}], "}"}], ",", 
+    RowBox[{
+     RowBox[{"indata", "=", 
+      RowBox[{"ToExpression", "[", 
+       RowBox[{"Import", "[", "file", "]"}], "]"}]}], ";", 
+     RowBox[{"l", "=", 
+      RowBox[{"Length", "[", "indata", "]"}]}], ";", 
+     RowBox[{"outdata", "=", 
+      RowBox[{"Flatten", "[", 
+       RowBox[{"Table", "[", 
+        RowBox[{
+         RowBox[{"{", 
+          RowBox[{
+           RowBox[{"indata", "[", 
+            RowBox[{"[", 
+             RowBox[{"i", ",", "1"}], "]"}], "]"}], "\[Rule]", 
+           RowBox[{"StringReplace", "[", 
+            RowBox[{
+             RowBox[{"ToString", "[", 
+              RowBox[{"indata", "[", 
+               RowBox[{"[", 
+                RowBox[{"i", ",", "2"}], "]"}], "]"}], "]"}], ",", 
+             RowBox[{"Whitespace", "\[Rule]", "\"\<\>\""}]}], "]"}]}], "}"}], 
+         ",", 
+         RowBox[{"{", 
+          RowBox[{"i", ",", "1", ",", "l"}], "}"}]}], "]"}], "]"}]}], ";", 
+     "outdata"}]}], "]"}]}]], "Input",
+ CellLabel->"In[1]:=",ExpressionUUID->"211bc133-15b5-4cfa-89f3-4f65d58c8030"],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"set", "=", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{
+     "Importer", "[", 
+      "\"\<C:\\\\Modulation\\\\Sets\\\\APSK\\\\apskhn0.txt\>\"", "]"}], ",", 
+     RowBox[{
+     "Importer", "[", 
+      "\"\<C:\\\\Modulation\\\\Sets\\\\APSK\\\\apskhn1.txt\>\"", "]"}], ",", 
+     RowBox[{
+     "Importer", "[", 
+      "\"\<C:\\\\Modulation\\\\Sets\\\\APSK\\\\apskhn2.txt\>\"", "]"}], ",", 
+     RowBox[{
+     "Importer", "[", 
+      "\"\<C:\\\\Modulation\\\\Sets\\\\APSK\\\\apskhn3.txt\>\"", "]"}], ",", 
+     RowBox[{
+     "Importer", "[", 
+      "\"\<C:\\\\Modulation\\\\Sets\\\\APSK\\\\apskhn4.txt\>\"", "]"}], ",", 
+     RowBox[{
+     "Importer", "[", 
+      "\"\<C:\\\\Modulation\\\\Sets\\\\APSK\\\\apskfn0.txt\>\"", "]"}], ",", 
+     RowBox[{
+     "Importer", "[", 
+      "\"\<C:\\\\Modulation\\\\Sets\\\\APSK\\\\apskfn1.txt\>\"", "]"}], ",", 
+     RowBox[{
+     "Importer", "[", 
+      "\"\<C:\\\\Modulation\\\\Sets\\\\APSK\\\\apskfn2.txt\>\"", "]"}], ",", 
+     RowBox[{
+     "Importer", "[", 
+      "\"\<C:\\\\Modulation\\\\Sets\\\\APSK\\\\apskfn3.txt\>\"", "]"}], ",", 
+     RowBox[{
+     "Importer", "[", 
+      "\"\<C:\\\\Modulation\\\\Sets\\\\APSK\\\\apskfn4.txt\>\"", "]"}], ",", 
+     RowBox[{
+     "Importer", "[", "\"\<C:\\\\Modulation\\\\Sets\\\\PSK\\\\pskhn0.txt\>\"",
+       "]"}], ",", 
+     RowBox[{
+     "Importer", "[", "\"\<C:\\\\Modulation\\\\Sets\\\\PSK\\\\pskhn1.txt\>\"",
+       "]"}], ",", 
+     RowBox[{
+     "Importer", "[", "\"\<C:\\\\Modulation\\\\Sets\\\\PSK\\\\pskhn2.txt\>\"",
+       "]"}], ",", 
+     RowBox[{
+     "Importer", "[", "\"\<C:\\\\Modulation\\\\Sets\\\\PSK\\\\pskhn3.txt\>\"",
+       "]"}], ",", 
+     RowBox[{
+     "Importer", "[", "\"\<C:\\\\Modulation\\\\Sets\\\\PSK\\\\pskhn4.txt\>\"",
+       "]"}], ",", 
+     RowBox[{
+     "Importer", "[", "\"\<C:\\\\Modulation\\\\Sets\\\\PSK\\\\pskfn0.txt\>\"",
+       "]"}], ",", 
+     RowBox[{
+     "Importer", "[", "\"\<C:\\\\Modulation\\\\Sets\\\\PSK\\\\pskfn1.txt\>\"",
+       "]"}], ",", 
+     RowBox[{
+     "Importer", "[", "\"\<C:\\\\Modulation\\\\Sets\\\\PSK\\\\pskfn2.txt\>\"",
+       "]"}], ",", 
+     RowBox[{
+     "Importer", "[", "\"\<C:\\\\Modulation\\\\Sets\\\\PSK\\\\pskfn3.txt\>\"",
+       "]"}], ",", 
+     RowBox[{
+     "Importer", "[", "\"\<C:\\\\Modulation\\\\Sets\\\\PSK\\\\pskfn4.txt\>\"",
+       "]"}], ",", 
+     RowBox[{
+     "Importer", "[", "\"\<C:\\\\Modulation\\\\Sets\\\\QAM\\\\qamhn0.txt\>\"",
+       "]"}], ",", 
+     RowBox[{
+     "Importer", "[", "\"\<C:\\\\Modulation\\\\Sets\\\\QAM\\\\qamhn1.txt\>\"",
+       "]"}], ",", 
+     RowBox[{
+     "Importer", "[", "\"\<C:\\\\Modulation\\\\Sets\\\\QAM\\\\qamhn2.txt\>\"",
+       "]"}], ",", 
+     RowBox[{
+     "Importer", "[", "\"\<C:\\\\Modulation\\\\Sets\\\\QAM\\\\qamhn3.txt\>\"",
+       "]"}], ",", 
+     RowBox[{
+     "Importer", "[", "\"\<C:\\\\Modulation\\\\Sets\\\\QAM\\\\qamhn4.txt\>\"",
+       "]"}], ",", 
+     RowBox[{
+     "Importer", "[", "\"\<C:\\\\Modulation\\\\Sets\\\\QAM\\\\qamfn0.txt\>\"",
+       "]"}], ",", 
+     RowBox[{
+     "Importer", "[", "\"\<C:\\\\Modulation\\\\Sets\\\\QAM\\\\qamfn1.txt\>\"",
+       "]"}], ",", 
+     RowBox[{
+     "Importer", "[", "\"\<C:\\\\Modulation\\\\Sets\\\\QAM\\\\qamfn2.txt\>\"",
+       "]"}], ",", 
+     RowBox[{
+     "Importer", "[", "\"\<C:\\\\Modulation\\\\Sets\\\\QAM\\\\qamfn3.txt\>\"",
+       "]"}], ",", 
+     RowBox[{
+     "Importer", "[", "\"\<C:\\\\Modulation\\\\Sets\\\\QAM\\\\qamfn4.txt\>\"",
+       "]"}]}], "}"}]}], ";"}]], "Input",
+ CellChangeTimes->{{3.7643494039291315`*^9, 3.764349421568571*^9}, {
+  3.7643494527201304`*^9, 3.7643494803900456`*^9}, {3.764349635485446*^9, 
+  3.7643496699478903`*^9}, {3.764349707722456*^9, 3.7643497185497694`*^9}, {
+  3.764349996703968*^9, 3.76435000631269*^9}, {3.7643504621952667`*^9, 
+  3.764350497427145*^9}, {3.7645904462917595`*^9, 3.764590525816039*^9}},
+ CellLabel->"In[2]:=",ExpressionUUID->"47e68619-944d-4b40-bb80-3a57282eeef5"],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"net", "=", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"ToExpression", "[", 
+      RowBox[{
+      "Import", "[", 
+       "\"\<C:\\\\Modulation\\\\Neural \
+networks\\\\APSK\\\\apskhn0v19.txt\>\"", "]"}], "]"}], ",", 
+     RowBox[{"ToExpression", "[", 
+      RowBox[{
+      "Import", "[", 
+       "\"\<C:\\\\Modulation\\\\Neural \
+networks\\\\APSK\\\\apskhn1v02.txt\>\"", "]"}], "]"}], ",", 
+     RowBox[{"ToExpression", "[", 
+      RowBox[{
+      "Import", "[", 
+       "\"\<C:\\\\Modulation\\\\Neural \
+networks\\\\APSK\\\\apskhn2v04.txt\>\"", "]"}], "]"}], ",", 
+     RowBox[{"ToExpression", "[", 
+      RowBox[{
+      "Import", "[", 
+       "\"\<C:\\\\Modulation\\\\Neural \
+networks\\\\APSK\\\\apskhn3v04.txt\>\"", "]"}], "]"}], ",", 
+     RowBox[{"ToExpression", "[", 
+      RowBox[{
+      "Import", "[", 
+       "\"\<C:\\\\Modulation\\\\Neural \
+networks\\\\APSK\\\\apskhn4v04.txt\>\"", "]"}], "]"}], ",", 
+     RowBox[{"ToExpression", "[", 
+      RowBox[{
+      "Import", "[", 
+       "\"\<C:\\\\Modulation\\\\Neural \
+networks\\\\APSK\\\\apskfn0av03.txt\>\"", "]"}], "]"}], ",", 
+     RowBox[{"ToExpression", "[", 
+      RowBox[{
+      "Import", "[", 
+       "\"\<C:\\\\Modulation\\\\Neural \
+networks\\\\APSK\\\\apskfn1av03.txt\>\"", "]"}], "]"}], ",", 
+     RowBox[{"ToExpression", "[", 
+      RowBox[{
+      "Import", "[", 
+       "\"\<C:\\\\Modulation\\\\Neural \
+networks\\\\APSK\\\\apskfn2av03.txt\>\"", "]"}], "]"}], ",", 
+     RowBox[{"ToExpression", "[", 
+      RowBox[{
+      "Import", "[", 
+       "\"\<C:\\\\Modulation\\\\Neural \
+networks\\\\APSK\\\\apskfn3av03.txt\>\"", "]"}], "]"}], ",", 
+     RowBox[{"ToExpression", "[", 
+      RowBox[{
+      "Import", "[", 
+       "\"\<C:\\\\Modulation\\\\Neural \
+networks\\\\APSK\\\\apskfn4av03.txt\>\"", "]"}], "]"}], ",", 
+     RowBox[{"ToExpression", "[", 
+      RowBox[{
+      "Import", "[", 
+       "\"\<C:\\\\Modulation\\\\Neural networks\\\\PSK\\\\pskhn0v10.txt\>\"", 
+       "]"}], "]"}], ",", 
+     RowBox[{"ToExpression", "[", 
+      RowBox[{
+      "Import", "[", 
+       "\"\<C:\\\\Modulation\\\\Neural networks\\\\PSK\\\\pskhn1v06.txt\>\"", 
+       "]"}], "]"}], ",", 
+     RowBox[{"ToExpression", "[", 
+      RowBox[{
+      "Import", "[", 
+       "\"\<C:\\\\Modulation\\\\Neural networks\\\\PSK\\\\pskhn2v06.txt\>\"", 
+       "]"}], "]"}], ",", 
+     RowBox[{"ToExpression", "[", 
+      RowBox[{
+      "Import", "[", 
+       "\"\<C:\\\\Modulation\\\\Neural networks\\\\PSK\\\\pskhn3v06.txt\>\"", 
+       "]"}], "]"}], ",", 
+     RowBox[{"ToExpression", "[", 
+      RowBox[{
+      "Import", "[", 
+       "\"\<C:\\\\Modulation\\\\Neural networks\\\\PSK\\\\pskhn4v06.txt\>\"", 
+       "]"}], "]"}], ",", 
+     RowBox[{"ToExpression", "[", 
+      RowBox[{
+      "Import", "[", 
+       "\"\<C:\\\\Modulation\\\\Neural networks\\\\PSK\\\\pskfn0av02.txt\>\"",
+        "]"}], "]"}], ",", 
+     RowBox[{"ToExpression", "[", 
+      RowBox[{
+      "Import", "[", 
+       "\"\<C:\\\\Modulation\\\\Neural networks\\\\PSK\\\\pskfn1av02.txt\>\"",
+        "]"}], "]"}], ",", 
+     RowBox[{"ToExpression", "[", 
+      RowBox[{
+      "Import", "[", 
+       "\"\<C:\\\\Modulation\\\\Neural networks\\\\PSK\\\\pskfn2av04.txt\>\"",
+        "]"}], "]"}], ",", 
+     RowBox[{"ToExpression", "[", 
+      RowBox[{
+      "Import", "[", 
+       "\"\<C:\\\\Modulation\\\\Neural networks\\\\PSK\\\\pskfn3av02.txt\>\"",
+        "]"}], "]"}], ",", 
+     RowBox[{"ToExpression", "[", 
+      RowBox[{
+      "Import", "[", 
+       "\"\<C:\\\\Modulation\\\\Neural networks\\\\PSK\\\\pskfn4av05.txt\>\"",
+        "]"}], "]"}], ",", 
+     RowBox[{"ToExpression", "[", 
+      RowBox[{
+      "Import", "[", 
+       "\"\<C:\\\\Modulation\\\\Neural networks\\\\QAM\\\\qamhn0v19.txt\>\"", 
+       "]"}], "]"}], ",", 
+     RowBox[{"ToExpression", "[", 
+      RowBox[{
+      "Import", "[", 
+       "\"\<C:\\\\Modulation\\\\Neural networks\\\\QAM\\\\qamhn1v02.txt\>\"", 
+       "]"}], "]"}], ",", 
+     RowBox[{"ToExpression", "[", 
+      RowBox[{
+      "Import", "[", 
+       "\"\<C:\\\\Modulation\\\\Neural networks\\\\QAM\\\\qamhn2v04.txt\>\"", 
+       "]"}], "]"}], ",", 
+     RowBox[{"ToExpression", "[", 
+      RowBox[{
+      "Import", "[", 
+       "\"\<C:\\\\Modulation\\\\Neural networks\\\\QAM\\\\qamhn3v04.txt\>\"", 
+       "]"}], "]"}], ",", 
+     RowBox[{"ToExpression", "[", 
+      RowBox[{
+      "Import", "[", 
+       "\"\<C:\\\\Modulation\\\\Neural networks\\\\QAM\\\\qamhn4v04.txt\>\"", 
+       "]"}], "]"}], ",", 
+     RowBox[{"ToExpression", "[", 
+      RowBox[{
+      "Import", "[", 
+       "\"\<C:\\\\Modulation\\\\Neural networks\\\\QAM\\\\qamfn0av03.txt\>\"",
+        "]"}], "]"}], ",", 
+     RowBox[{"ToExpression", "[", 
+      RowBox[{
+      "Import", "[", 
+       "\"\<C:\\\\Modulation\\\\Neural networks\\\\QAM\\\\qamfn1av03.txt\>\"",
+        "]"}], "]"}], ",", 
+     RowBox[{"ToExpression", "[", 
+      RowBox[{
+      "Import", "[", 
+       "\"\<C:\\\\Modulation\\\\Neural networks\\\\QAM\\\\qamfn2av08.txt\>\"",
+        "]"}], "]"}], ",", 
+     RowBox[{"ToExpression", "[", 
+      RowBox[{
+      "Import", "[", 
+       "\"\<C:\\\\Modulation\\\\Neural networks\\\\QAM\\\\qamfn3av03.txt\>\"",
+        "]"}], "]"}], ",", 
+     RowBox[{"ToExpression", "[", 
+      RowBox[{
+      "Import", "[", 
+       "\"\<C:\\\\Modulation\\\\Neural networks\\\\QAM\\\\qamfn4av03.txt\>\"",
+        "]"}], "]"}]}], "}"}]}], ";"}]], "Input",
+ CellChangeTimes->{{3.7643515922063913`*^9, 3.764351601721361*^9}, {
+  3.7643519080853357`*^9, 3.7643519820599375`*^9}, {3.7643525840164933`*^9, 
+  3.7643526493520193`*^9}, {3.7643528421870403`*^9, 3.764352847827276*^9}, {
+  3.7643529930935435`*^9, 3.7643530556472406`*^9}, {3.7643531200791445`*^9, 
+  3.764353152401231*^9}, {3.7643531837428603`*^9, 3.764353198710513*^9}, {
+  3.764353291062624*^9, 3.7643534462210045`*^9}, {3.764590535880783*^9, 
+  3.7645906237523623`*^9}, {3.7645907367588124`*^9, 3.7645907816572905`*^9}, {
+  3.7645908460364695`*^9, 3.7645908886896715`*^9}, {3.764590921797963*^9, 
+  3.7645910229172564`*^9}, {3.764591054163151*^9, 3.7645911450127687`*^9}},
+ CellLabel->"In[3]:=",ExpressionUUID->"405cac61-c475-4417-97f5-1ffd44ec7bab"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"CreateDialog", "[", 
+  RowBox[{"DynamicModule", "[", 
+   RowBox[{
+    RowBox[{"{", 
+     RowBox[{
+      RowBox[{"s", "=", 
+       RowBox[{"set", "[", 
+        RowBox[{"[", "1", "]"}], "]"}]}], ",", 
+      RowBox[{"n", "=", 
+       RowBox[{"net", "[", 
+        RowBox[{"[", "1", "]"}], "]"}]}], ",", 
+      RowBox[{"v1", "=", "1"}], ",", 
+      RowBox[{"v2", "=", "1"}], ",", 
+      RowBox[{"v3", "=", "1"}]}], "}"}], ",", 
+    RowBox[{"Grid", "[", 
+     RowBox[{"{", 
+      RowBox[{
+       RowBox[{"{", 
+        RowBox[{
+         RowBox[{"ActionMenu", "[", 
+          RowBox[{
+          "\"\<\:0412\:044b\:0431\:043e\:0440 \:0434\:0430\:0442\:0430\:0441\
+\:0435\:0442\:0430\>\"", ",", 
+           RowBox[{"{", 
+            RowBox[{
+             RowBox[{"\"\<APSK, M=2^(2n), n=0\>\"", "\[RuleDelayed]", 
+              RowBox[{"(", 
+               RowBox[{
+                RowBox[{"v1", "=", "1"}], ";"}], ")"}]}], ",", 
+             RowBox[{
+             "\"\<APSK, M=2^(2n), n\[Element]{-0.1A, 0.1A}\>\"", 
+              "\[RuleDelayed]", 
+              RowBox[{"(", 
+               RowBox[{
+                RowBox[{"v1", "=", "2"}], ";"}], ")"}]}], ",", 
+             RowBox[{
+             "\"\<APSK, M=2^(2n), n\[Element]{-0.25A, 0.25A}\>\"", 
+              "\[RuleDelayed]", 
+              RowBox[{"(", 
+               RowBox[{
+                RowBox[{"v1", "=", "3"}], ";"}], ")"}]}], ",", 
+             RowBox[{
+             "\"\<APSK, M=2^(2n), n\[Element]{-0.5A, 0.5A}\>\"", 
+              "\[RuleDelayed]", 
+              RowBox[{"(", 
+               RowBox[{
+                RowBox[{"v1", "=", "4"}], ";"}], ")"}]}], ",", 
+             RowBox[{
+             "\"\<APSK, M=2^(2n), n\[Element]{-1A, 1A}\>\"", "\[RuleDelayed]", 
+              RowBox[{"(", 
+               RowBox[{
+                RowBox[{"v1", "=", "5"}], ";"}], ")"}]}], ",", 
+             RowBox[{"\"\<APSK, M=2^n, n=0\>\"", "\[RuleDelayed]", 
+              RowBox[{"(", 
+               RowBox[{
+                RowBox[{"v1", "=", "6"}], ";"}], ")"}]}], ",", 
+             RowBox[{
+             "\"\<APSK, M=2^n, n\[Element]{-0.1A, 0.1A}\>\"", 
+              "\[RuleDelayed]", 
+              RowBox[{"(", 
+               RowBox[{
+                RowBox[{"v1", "=", "7"}], ";"}], ")"}]}], ",", 
+             RowBox[{
+             "\"\<APSK, M=2^n, n\[Element]{-0.25A, 0.25A}\>\"", 
+              "\[RuleDelayed]", 
+              RowBox[{"(", 
+               RowBox[{
+                RowBox[{"v1", "=", "8"}], ";"}], ")"}]}], ",", 
+             RowBox[{
+             "\"\<APSK, M=2^n, n\[Element]{-0.5A, 0.5A}\>\"", 
+              "\[RuleDelayed]", 
+              RowBox[{"(", 
+               RowBox[{
+                RowBox[{"v1", "=", "9"}], ";"}], ")"}]}], ",", 
+             RowBox[{
+             "\"\<APSK, M=2^n, n\[Element]{-1A, 1A}\>\"", "\[RuleDelayed]", 
+              RowBox[{"(", 
+               RowBox[{
+                RowBox[{"v1", "=", "10"}], ";"}], ")"}]}], ",", 
+             RowBox[{"\"\<PSK, M=2^(2n), n=0\>\"", "\[RuleDelayed]", 
+              RowBox[{"(", 
+               RowBox[{
+                RowBox[{"v1", "=", "11"}], ";"}], ")"}]}], ",", 
+             RowBox[{
+             "\"\<PSK, M=2^(2n), n\[Element]{-0.1A, 0.1A}\>\"", 
+              "\[RuleDelayed]", 
+              RowBox[{"(", 
+               RowBox[{
+                RowBox[{"v1", "=", "12"}], ";"}], ")"}]}], ",", 
+             RowBox[{
+             "\"\<PSK, M=2^(2n), n\[Element]{-0.25A, 0.25A}\>\"", 
+              "\[RuleDelayed]", 
+              RowBox[{"(", 
+               RowBox[{
+                RowBox[{"v1", "=", "13"}], ";"}], ")"}]}], ",", 
+             RowBox[{
+             "\"\<PSK, M=2^(2n), n\[Element]{-0.5A, 0.5A}\>\"", 
+              "\[RuleDelayed]", 
+              RowBox[{"(", 
+               RowBox[{
+                RowBox[{"v1", "=", "14"}], ";"}], ")"}]}], ",", 
+             RowBox[{
+             "\"\<PSK, M=2^(2n), n\[Element]{-1A, 1A}\>\"", "\[RuleDelayed]", 
+              RowBox[{"(", 
+               RowBox[{
+                RowBox[{"v1", "=", "15"}], ";"}], ")"}]}], ",", 
+             RowBox[{"\"\<PSK, M=2^n, n=0\>\"", "\[RuleDelayed]", 
+              RowBox[{"(", 
+               RowBox[{
+                RowBox[{"v1", "=", "16"}], ";"}], ")"}]}], ",", 
+             RowBox[{
+             "\"\<PSK, M=2^n, n\[Element]{-0.1A, 0.1A}\>\"", "\[RuleDelayed]", 
+              RowBox[{"(", 
+               RowBox[{
+                RowBox[{"v1", "=", "17"}], ";"}], ")"}]}], ",", 
+             RowBox[{
+             "\"\<PSK, M=2^n, n\[Element]{-0.25A, 0.25A}\>\"", 
+              "\[RuleDelayed]", 
+              RowBox[{"(", 
+               RowBox[{
+                RowBox[{"v1", "=", "18"}], ";"}], ")"}]}], ",", 
+             RowBox[{
+             "\"\<PSK, M=2^n, n\[Element]{-0.5A, 0.5A}\>\"", "\[RuleDelayed]", 
+              RowBox[{"(", 
+               RowBox[{
+                RowBox[{"v1", "=", "19"}], ";"}], ")"}]}], ",", 
+             RowBox[{
+             "\"\<PSK, M=2^n, n\[Element]{-1A, 1A}\>\"", "\[RuleDelayed]", 
+              RowBox[{"(", 
+               RowBox[{
+                RowBox[{"v1", "=", "20"}], ";"}], ")"}]}], ",", 
+             RowBox[{"\"\<QAM, M=2^(2n), n=0\>\"", "\[RuleDelayed]", 
+              RowBox[{"(", 
+               RowBox[{
+                RowBox[{"v1", "=", "21"}], ";"}], ")"}]}], ",", 
+             RowBox[{
+             "\"\<QAM, M=2^(2n), n\[Element]{-0.1A, 0.1A}\>\"", 
+              "\[RuleDelayed]", 
+              RowBox[{"(", 
+               RowBox[{
+                RowBox[{"v1", "=", "22"}], ";"}], ")"}]}], ",", 
+             RowBox[{
+             "\"\<QAM, M=2^(2n), n\[Element]{-0.25A, 0.25A}\>\"", 
+              "\[RuleDelayed]", 
+              RowBox[{"(", 
+               RowBox[{
+                RowBox[{"v1", "=", "23"}], ";"}], ")"}]}], ",", 
+             RowBox[{
+             "\"\<QAM, M=2^(2n), n\[Element]{-0.5A, 0.5A}\>\"", 
+              "\[RuleDelayed]", 
+              RowBox[{"(", 
+               RowBox[{
+                RowBox[{"v1", "=", "24"}], ";"}], ")"}]}], ",", 
+             RowBox[{
+             "\"\<QAM, M=2^(2n), n\[Element]{-1A, 1A}\>\"", "\[RuleDelayed]", 
+              RowBox[{"(", 
+               RowBox[{
+                RowBox[{"v1", "=", "25"}], ";"}], ")"}]}], ",", 
+             RowBox[{"\"\<QAM, M=2^n, n=0\>\"", "\[RuleDelayed]", 
+              RowBox[{"(", 
+               RowBox[{
+                RowBox[{"v1", "=", "26"}], ";"}], ")"}]}], ",", 
+             RowBox[{
+             "\"\<QAM, M=2^n, n\[Element]{-0.1A, 0.1A}\>\"", "\[RuleDelayed]", 
+              RowBox[{"(", 
+               RowBox[{
+                RowBox[{"v1", "=", "27"}], ";"}], ")"}]}], ",", 
+             RowBox[{
+             "\"\<QAM, M=2^n, n\[Element]{-0.25A, 0.25A}\>\"", 
+              "\[RuleDelayed]", 
+              RowBox[{"(", 
+               RowBox[{
+                RowBox[{"v1", "=", "28"}], ";"}], ")"}]}], ",", 
+             RowBox[{
+             "\"\<QAM, M=2^n, n\[Element]{-0.5A, 0.5A}\>\"", "\[RuleDelayed]", 
+              RowBox[{"(", 
+               RowBox[{
+                RowBox[{"v1", "=", "29"}], ";"}], ")"}]}], ",", 
+             RowBox[{
+             "\"\<QAM, M=2^n, n\[Element]{-1A, 1A}\>\"", "\[RuleDelayed]", 
+              RowBox[{"(", 
+               RowBox[{
+                RowBox[{"v1", "=", "30"}], ";"}], ")"}]}]}], "}"}]}], "]"}], 
+         ",", "SpanFromLeft"}], "}"}], ",", 
+       RowBox[{"{", 
+        RowBox[{
+         RowBox[{"ActionMenu", "[", 
+          RowBox[{
+          "\"\<\:0412\:044b\:0431\:043e\:0440 \:043d\:0435\:0439\:0440\:043e\
+\:043d\:043d\:043e\:0439 \:0441\:0435\:0442\:0438\>\"", ",", 
+           RowBox[{"{", 
+            RowBox[{
+             RowBox[{"\"\<APSK, M=2^(2n), n=0\>\"", "\[RuleDelayed]", 
+              RowBox[{"(", 
+               RowBox[{
+                RowBox[{"v2", "=", "1"}], ";"}], ")"}]}], ",", 
+             RowBox[{
+             "\"\<APSK, M=2^(2n), n\[Element]{-0.1A, 0.1A}\>\"", 
+              "\[RuleDelayed]", 
+              RowBox[{"(", 
+               RowBox[{
+                RowBox[{"v2", "=", "2"}], ";"}], ")"}]}], ",", 
+             RowBox[{
+             "\"\<APSK, M=2^(2n), n\[Element]{-0.25A, 0.25A}\>\"", 
+              "\[RuleDelayed]", 
+              RowBox[{"(", 
+               RowBox[{
+                RowBox[{"v2", "=", "3"}], ";"}], ")"}]}], ",", 
+             RowBox[{
+             "\"\<APSK, M=2^(2n), n\[Element]{-0.5A, 0.5A}\>\"", 
+              "\[RuleDelayed]", 
+              RowBox[{"(", 
+               RowBox[{
+                RowBox[{"v2", "=", "4"}], ";"}], ")"}]}], ",", 
+             RowBox[{
+             "\"\<APSK, M=2^(2n), n\[Element]{-1A, 1A}\>\"", "\[RuleDelayed]", 
+              RowBox[{"(", 
+               RowBox[{
+                RowBox[{"v2", "=", "5"}], ";"}], ")"}]}], ",", 
+             RowBox[{"\"\<APSK, M=2^n, n=0\>\"", "\[RuleDelayed]", 
+              RowBox[{"(", 
+               RowBox[{
+                RowBox[{"v2", "=", "6"}], ";"}], ")"}]}], ",", 
+             RowBox[{
+             "\"\<APSK, M=2^n, n\[Element]{-0.1A, 0.1A}\>\"", 
+              "\[RuleDelayed]", 
+              RowBox[{"(", 
+               RowBox[{
+                RowBox[{"v2", "=", "7"}], ";"}], ")"}]}], ",", 
+             RowBox[{
+             "\"\<APSK, M=2^n, n\[Element]{-0.25A, 0.25A}\>\"", 
+              "\[RuleDelayed]", 
+              RowBox[{"(", 
+               RowBox[{
+                RowBox[{"v2", "=", "8"}], ";"}], ")"}]}], ",", 
+             RowBox[{
+             "\"\<APSK, M=2^n, n\[Element]{-0.5A, 0.5A}\>\"", 
+              "\[RuleDelayed]", 
+              RowBox[{"(", 
+               RowBox[{
+                RowBox[{"v2", "=", "9"}], ";"}], ")"}]}], ",", 
+             RowBox[{
+             "\"\<APSK, M=2^n, n\[Element]{-1A, 1A}\>\"", "\[RuleDelayed]", 
+              RowBox[{"(", 
+               RowBox[{
+                RowBox[{"v2", "=", "10"}], ";"}], ")"}]}], ",", 
+             RowBox[{"\"\<PSK, M=2^(2n), n=0\>\"", "\[RuleDelayed]", 
+              RowBox[{"(", 
+               RowBox[{
+                RowBox[{"v2", "=", "11"}], ";"}], ")"}]}], ",", 
+             RowBox[{
+             "\"\<PSK, M=2^(2n), n\[Element]{-0.1A, 0.1A}\>\"", 
+              "\[RuleDelayed]", 
+              RowBox[{"(", 
+               RowBox[{
+                RowBox[{"v2", "=", "12"}], ";"}], ")"}]}], ",", 
+             RowBox[{
+             "\"\<PSK, M=2^(2n), n\[Element]{-0.25A, 0.25A}\>\"", 
+              "\[RuleDelayed]", 
+              RowBox[{"(", 
+               RowBox[{
+                RowBox[{"v2", "=", "13"}], ";"}], ")"}]}], ",", 
+             RowBox[{
+             "\"\<PSK, M=2^(2n), n\[Element]{-0.5A, 0.5A}\>\"", 
+              "\[RuleDelayed]", 
+              RowBox[{"(", 
+               RowBox[{
+                RowBox[{"v2", "=", "14"}], ";"}], ")"}]}], ",", 
+             RowBox[{
+             "\"\<PSK, M=2^(2n), n\[Element]{-1A, 1A}\>\"", "\[RuleDelayed]", 
+              RowBox[{"(", 
+               RowBox[{
+                RowBox[{"v2", "=", "15"}], ";"}], ")"}]}], ",", 
+             RowBox[{"\"\<PSK, M=2^n, n=0\>\"", "\[RuleDelayed]", 
+              RowBox[{"(", 
+               RowBox[{
+                RowBox[{"v2", "=", "16"}], ";"}], ")"}]}], ",", 
+             RowBox[{
+             "\"\<PSK, M=2^n, n\[Element]{-0.1A, 0.1A}\>\"", "\[RuleDelayed]", 
+              RowBox[{"(", 
+               RowBox[{
+                RowBox[{"v2", "=", "17"}], ";"}], ")"}]}], ",", 
+             RowBox[{
+             "\"\<PSK, M=2^n, n\[Element]{-0.25A, 0.25A}\>\"", 
+              "\[RuleDelayed]", 
+              RowBox[{"(", 
+               RowBox[{
+                RowBox[{"v2", "=", "18"}], ";"}], ")"}]}], ",", 
+             RowBox[{
+             "\"\<PSK, M=2^n, n\[Element]{-0.5A, 0.5A}\>\"", "\[RuleDelayed]", 
+              RowBox[{"(", 
+               RowBox[{
+                RowBox[{"v2", "=", "19"}], ";"}], ")"}]}], ",", 
+             RowBox[{
+             "\"\<PSK, M=2^n, n\[Element]{-1A, 1A}\>\"", "\[RuleDelayed]", 
+              RowBox[{"(", 
+               RowBox[{
+                RowBox[{"v2", "=", "20"}], ";"}], ")"}]}], ",", 
+             RowBox[{"\"\<QAM, M=2^(2n), n=0\>\"", "\[RuleDelayed]", 
+              RowBox[{"(", 
+               RowBox[{
+                RowBox[{"v2", "=", "21"}], ";"}], ")"}]}], ",", 
+             RowBox[{
+             "\"\<QAM, M=2^(2n), n\[Element]{-0.1A, 0.1A}\>\"", 
+              "\[RuleDelayed]", 
+              RowBox[{"(", 
+               RowBox[{
+                RowBox[{"v2", "=", "22"}], ";"}], ")"}]}], ",", 
+             RowBox[{
+             "\"\<QAM, M=2^(2n), n\[Element]{-0.25A, 0.25A}\>\"", 
+              "\[RuleDelayed]", 
+              RowBox[{"(", 
+               RowBox[{
+                RowBox[{"v2", "=", "23"}], ";"}], ")"}]}], ",", 
+             RowBox[{
+             "\"\<QAM, M=2^(2n), n\[Element]{-0.5A, 0.5A}\>\"", 
+              "\[RuleDelayed]", 
+              RowBox[{"(", 
+               RowBox[{
+                RowBox[{"v2", "=", "24"}], ";"}], ")"}]}], ",", 
+             RowBox[{
+             "\"\<QAM, M=2^(2n), n\[Element]{-1A, 1A}\>\"", "\[RuleDelayed]", 
+              RowBox[{"(", 
+               RowBox[{
+                RowBox[{"v2", "=", "25"}], ";"}], ")"}]}], ",", 
+             RowBox[{"\"\<QAM, M=2^n, n=0\>\"", "\[RuleDelayed]", 
+              RowBox[{"(", 
+               RowBox[{
+                RowBox[{"v2", "=", "26"}], ";"}], ")"}]}], ",", 
+             RowBox[{
+             "\"\<QAM, M=2^n, n\[Element]{-0.1A, 0.1A}\>\"", "\[RuleDelayed]", 
+              RowBox[{"(", 
+               RowBox[{
+                RowBox[{"v2", "=", "27"}], ";"}], ")"}]}], ",", 
+             RowBox[{
+             "\"\<QAM, M=2^n, n\[Element]{-0.25A, 0.25A}\>\"", 
+              "\[RuleDelayed]", 
+              RowBox[{"(", 
+               RowBox[{
+                RowBox[{"v2", "=", "28"}], ";"}], ")"}]}], ",", 
+             RowBox[{
+             "\"\<QAM, M=2^n, n\[Element]{-0.5A, 0.5A}\>\"", "\[RuleDelayed]", 
+              RowBox[{"(", 
+               RowBox[{
+                RowBox[{"v2", "=", "29"}], ";"}], ")"}]}], ",", 
+             RowBox[{
+             "\"\<QAM, M=2^n, n\[Element]{-1A, 1A}\>\"", "\[RuleDelayed]", 
+              RowBox[{"(", 
+               RowBox[{
+                RowBox[{"v2", "=", "30"}], ";"}], ")"}]}]}], "}"}]}], "]"}], 
+         ",", "SpanFromLeft"}], "}"}], ",", 
+       RowBox[{"{", 
+        RowBox[{
+        "\"\<\:0412\:044b\:0431\:043e\:0440 \:0441\:0438\:0433\:043d\:0430\
+\:043b\:0430 (1-10000)   \:2116  = \>\"", ",", 
+         RowBox[{"InputField", "[", 
+          RowBox[{
+           RowBox[{"Dynamic", "[", "v3", "]"}], ",", 
+           RowBox[{"FieldSize", "\[Rule]", "Tiny"}]}], "]"}]}], "}"}], ",", 
+       RowBox[{"{", 
+        RowBox[{
+         RowBox[{"Button", "[", 
+          RowBox[{
+          "\"\<\:041f\:043e\:043a\:0430\:0437\:0430\:0442\:044c \:0441\:0438\
+\:0433\:043d\:0430\:043b\>\"", ",", 
+           RowBox[{"CreateDialog", "[", 
+            RowBox[{"DynamicModule", "[", 
+             RowBox[{
+              RowBox[{"{", "}"}], ",", 
+              RowBox[{"set", "[", 
+               RowBox[{"[", 
+                RowBox[{"v1", ",", "v3"}], "]"}], "]"}]}], "]"}], "]"}]}], 
+          "]"}], ",", "SpanFromLeft"}], "}"}], ",", 
+       RowBox[{"{", 
+        RowBox[{
+         RowBox[{"Button", "[", 
+          RowBox[{
+          "\"\<\:041e\:043f\:0440\:0435\:0434\:0435\:043b\:0435\:043d\:0438\
+\:0435 \:0442\:0438\:043f\:0430 \:043c\:043e\:0434\:0443\:043b\:044f\:0446\
+\:0438\:0438\>\"", ",", 
+           RowBox[{"CreateDialog", "[", 
+            RowBox[{"DynamicModule", "[", 
+             RowBox[{
+              RowBox[{"{", "}"}], ",", 
+              RowBox[{
+               RowBox[{"net", "[", 
+                RowBox[{"[", "v2", "]"}], "]"}], "[", 
+               RowBox[{"set", "[", 
+                RowBox[{"[", 
+                 RowBox[{"v1", ",", "v3", ",", "1"}], "]"}], "]"}], "]"}]}], 
+             "]"}], "]"}]}], "]"}], ",", "SpanFromLeft"}], "}"}]}], "}"}], 
+     "]"}]}], "]"}], "]"}]], "Input",
+ CellChangeTimes->{{3.763710145076763*^9, 3.763710175321618*^9}, {
+   3.7637104196442537`*^9, 3.7637104654330187`*^9}, {3.7637106346230273`*^9, 
+   3.7637106728321066`*^9}, {3.7637107889658003`*^9, 3.763710789465779*^9}, {
+   3.7637108553471746`*^9, 3.763710951252824*^9}, {3.763967577479051*^9, 
+   3.7639675796351523`*^9}, {3.764354445525381*^9, 3.7643544598837414`*^9}, {
+   3.7643544965062113`*^9, 3.764354510465947*^9}, {3.764354621040047*^9, 
+   3.764354645507175*^9}, {3.764354797103587*^9, 3.7643547976348543`*^9}, {
+   3.7643548680730925`*^9, 3.764354895696138*^9}, {3.7643549337732925`*^9, 
+   3.7643549370543203`*^9}, {3.7643552014801865`*^9, 3.764355209042116*^9}, {
+   3.7643552518187275`*^9, 3.764355258474563*^9}, {3.764355324924032*^9, 
+   3.7643553715498962`*^9}, {3.764355406953761*^9, 3.764355530714588*^9}, {
+   3.764405986938145*^9, 3.7644059976874657`*^9}, {3.7644060373209033`*^9, 
+   3.7644060998934765`*^9}, {3.7644061754114056`*^9, 3.764406345670519*^9}, {
+   3.764406420810567*^9, 3.7644064766076484`*^9}, {3.7644066357187986`*^9, 
+   3.7644068486321144`*^9}, {3.7644068849108534`*^9, 
+   3.7644069632552257`*^9}, {3.7644070658006516`*^9, 3.764407164328089*^9}, {
+   3.764407324515688*^9, 3.7644073302484407`*^9}, {3.764407491842783*^9, 
+   3.764407522793768*^9}, {3.7644075655062847`*^9, 3.76440757214645*^9}, {
+   3.764407646814933*^9, 3.7644076469867954`*^9}, {3.764407755378189*^9, 
+   3.7644077637213793`*^9}, {3.7644078071090536`*^9, 
+   3.7644078598520455`*^9}, {3.7644079653772945`*^9, 
+   3.7644079668616066`*^9}, {3.764408099015744*^9, 3.764408121639185*^9}, {
+   3.7644082479331656`*^9, 3.7644082844011817`*^9}, {3.764408324242194*^9, 
+   3.764408324429682*^9}, 3.764408381201446*^9, {3.764411114197011*^9, 
+   3.764411182300354*^9}, 3.7644112213940773`*^9, {3.764411392973362*^9, 
+   3.7644113973793287`*^9}, {3.7644116322161617`*^9, 
+   3.7644116971521683`*^9}, {3.7644117441576796`*^9, 
+   3.7644118074362707`*^9}, {3.764411959044732*^9, 3.7644119616202183`*^9}, {
+   3.7644120146908383`*^9, 3.764412065029849*^9}},
+ CellLabel->"In[4]:=",ExpressionUUID->"3cd9297a-3af3-4089-8d8c-c47ac0ca0437"],
+
+Cell[BoxData[
+ TemplateBox[{FrontEndObject[
+    LinkObject["bqnnr_shm", 3, 1]],16,
+   "FrontEndObject[LinkObject[\"bqnnr_shm\", 3, 1]]","16","16"},
+  "NotebookObjectUnsaved"]], "Output",
+ CellChangeTimes->{
+  3.764407969689494*^9, 3.764408073578142*^9, {3.7644081039216547`*^9, 
+   3.764408126060752*^9}, {3.7644082509798098`*^9, 3.7644082576686525`*^9}, 
+   3.7644082958378897`*^9, 3.764408326835744*^9, 3.764411187596861*^9, 
+   3.764411225798829*^9, 3.7644113195461907`*^9, 3.764411493197463*^9, 
+   3.7644117062452865`*^9, 3.764411779795842*^9, 3.7644118130938807`*^9, 
+   3.7644119288124413`*^9, 3.7644119709945726`*^9, {3.764412018632428*^9, 
+   3.7644120681077633`*^9}, 3.7645911901231756`*^9},
+ CellLabel->"Out[4]=",ExpressionUUID->"71c1b308-9c30-4fb5-bb37-30699f0e17c1"]
+}, Open  ]]
+},
+WindowSize->{1920, 1117},
+WindowMargins->{{-8, Automatic}, {Automatic, -8}},
+Magnification:>2. Inherited,
+FrontEndVersion->"12.0 for Microsoft Windows (64-bit) (April 8, 2019)",
+StyleDefinitions->"Default.nb"
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[558, 20, 1331, 37, 274, "Input",ExpressionUUID->"211bc133-15b5-4cfa-89f3-4f65d58c8030"],
+Cell[1892, 59, 3953, 100, 604, "Input",ExpressionUUID->"47e68619-944d-4b40-bb80-3a57282eeef5"],
+Cell[5848, 161, 6169, 164, 2175, "Input",ExpressionUUID->"405cac61-c475-4417-97f5-1ffd44ec7bab"],
+Cell[CellGroupData[{
+Cell[12042, 329, 18173, 422, 1677, "Input",ExpressionUUID->"3cd9297a-3af3-4089-8d8c-c47ac0ca0437"],
+Cell[30218, 753, 779, 13, 126, "Output",ExpressionUUID->"71c1b308-9c30-4fb5-bb37-30699f0e17c1"]
+}, Open  ]]
+}
+]
+*)
+

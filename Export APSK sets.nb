@@ -1,0 +1,1383 @@
+(* Content-type: application/vnd.wolfram.mathematica *)
+
+(*** Wolfram Notebook File ***)
+(* http://www.wolfram.com/nb *)
+
+(* CreatedBy='Mathematica 11.3' *)
+
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[       158,          7]
+NotebookDataLength[     49923,       1375]
+NotebookOptionsPosition[     45230,       1272]
+NotebookOutlinePosition[     45573,       1287]
+CellTagsIndexPosition[     45530,       1284]
+WindowFrame->Normal*)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+
+Cell[CellGroupData[{
+Cell["\:041e\:0431\:0443\:0447\:0430\:044e\:0449\:0438\:0435 \:0432\:044b\
+\:0431\:043e\:0440\:043a\:0438", "Title",
+ CellChangeTimes->{{3.7639080277030993`*^9, 
+  3.7639080318747487`*^9}},ExpressionUUID->"70e0d1d1-7c89-47a5-bd10-\
+191a2019266e"],
+
+Cell[CellGroupData[{
+
+Cell["APSK", "Chapter",
+ CellChangeTimes->{{3.763908055082048*^9, 
+  3.7639080555663924`*^9}},ExpressionUUID->"59ba5306-896a-47f1-a338-\
+785f94dbfb41"],
+
+Cell[CellGroupData[{
+
+Cell["\:0412\:044b\:0431\:043e\:0440\:043a\:0438 \:0431\:0435\:0437 \:0448\
+\:0443\:043c\:0430", "Subchapter",
+ CellChangeTimes->{{3.763908158840703*^9, 
+  3.763908162496769*^9}},ExpressionUUID->"4c5e2236-3b3a-4351-ad5b-\
+7121cddd17b2"],
+
+Cell[CellGroupData[{
+
+Cell[TextData[{
+ "16 \:043e\:0442\:0441\:0447\:0435\:0442\:043e\:0432, ",
+ Cell[BoxData[
+  FormBox[
+   RowBox[{"M", "=", 
+    SuperscriptBox["2", 
+     RowBox[{"2", "n"}]]}], TraditionalForm]],ExpressionUUID->
+  "dc9b2c3f-9f04-4794-93b7-84d37e02da73"]
+}], "Subsection",
+ CellChangeTimes->{{3.763908088064069*^9, 3.7639081382785387`*^9}, {
+  3.763908345020277*^9, 3.7639083508077793`*^9}, {3.7640509409888396`*^9, 
+  3.7640509454729204`*^9}},ExpressionUUID->"9c1cea87-ee9f-4874-8efd-\
+ba77b19f3d3f"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{"apsk16hn0", "=", 
+   RowBox[{"Table", "[", 
+    RowBox[{
+     RowBox[{
+      RowBox[{"Flatten", "[", 
+       RowBox[{"APSKGen", "[", 
+        RowBox[{
+         RowBox[{"{", 
+          RowBox[{"1", ",", "3"}], "}"}], ",", "16"}], "]"}], "]"}], 
+      "\[Rule]", "\"\<16-APSK\>\""}], ",", 
+     RowBox[{"{", 
+      RowBox[{"p", ",", "1", ",", "3333", ",", "1"}], "}"}]}], "]"}]}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"apsk64hn0", "=", 
+   RowBox[{"Table", "[", 
+    RowBox[{
+     RowBox[{
+      RowBox[{"Flatten", "[", 
+       RowBox[{"APSKGen", "[", 
+        RowBox[{
+         RowBox[{"{", 
+          RowBox[{"3", ",", "5", ",", "7", ",", "9"}], "}"}], ",", "16"}], 
+        "]"}], "]"}], "\[Rule]", "\"\<64-APSK\>\""}], ",", 
+     RowBox[{"{", 
+      RowBox[{"p", ",", "1", ",", "3334", ",", "1"}], "}"}]}], "]"}]}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"apsk256hn0", "=", 
+   RowBox[{"Table", "[", 
+    RowBox[{
+     RowBox[{
+      RowBox[{"Flatten", "[", 
+       RowBox[{"APSKGen", "[", 
+        RowBox[{
+         RowBox[{"{", 
+          RowBox[{
+          "5", ",", "7", ",", "9", ",", "11", ",", "13", ",", "15", ",", "17",
+            ",", "19"}], "}"}], ",", "16"}], "]"}], "]"}], "\[Rule]", 
+      "\"\<256-APSK\>\""}], ",", 
+     RowBox[{"{", 
+      RowBox[{"p", ",", "1", ",", "3333", ",", "1"}], "}"}]}], "]"}]}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"apskpretrainhn0", "=", 
+   RowBox[{"Flatten", "[", 
+    RowBox[{"Append", "[", 
+     RowBox[{
+      RowBox[{"Flatten", "[", 
+       RowBox[{"Append", "[", 
+        RowBox[{"apsk16hn0", ",", "apsk64hn0"}], "]"}], "]"}], ",", 
+      "apsk256hn0"}], "]"}], "]"}]}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"apsktrainhn0", "=", 
+   RowBox[{"RandomSample", "[", "apskpretrainhn0", "]"}]}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{"Export", "[", 
+  RowBox[{
+  "\"\<C:\\\\Modulation\\\\Sets\\\\APSK\\\\apskhn0.txt\>\"", ",", 
+   "apsktrainhn0", ",", "\"\<String\>\""}], "]"}]}], "Input",
+ CellChangeTimes->{{3.763908219167996*^9, 3.7639082830343437`*^9}, {
+   3.7639083394804335`*^9, 3.7639083900437136`*^9}, {3.7639084291816077`*^9, 
+   3.7639084794743385`*^9}, 3.7639085312244406`*^9, {3.763908609004651*^9, 
+   3.7639088314760137`*^9}, {3.763908862085745*^9, 3.7639088654761972`*^9}, {
+   3.7639089057694125`*^9, 3.7639089705589952`*^9}, {3.7640510250158215`*^9, 
+   3.7640510348492*^9}, {3.7640510733104453`*^9, 3.7640511584555287`*^9}, {
+   3.764051194892776*^9, 3.7640512253593817`*^9}, {3.7645834506997256`*^9, 
+   3.7645834679821377`*^9}},
+ CellLabel->"In[43]:=",ExpressionUUID->"009143bc-b437-4624-bf11-5dea9edc21fd"],
+
+Cell[BoxData["\<\"C:\\\\Modulation\\\\Sets\\\\APSK\\\\apskhn0.txt\"\>"], \
+"Output",
+ CellChangeTimes->{3.7639090185751896`*^9, 3.7640514696205015`*^9, 
+  3.7645835767899427`*^9},
+ CellLabel->"Out[48]=",ExpressionUUID->"0fbf70d3-72ee-468f-8615-4ac632ab7df3"]
+}, Open  ]]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[TextData[{
+ "16 \:043e\:0442\:0441\:0447\:0435\:0442\:043e\:0432, ",
+ Cell[BoxData[
+  FormBox[
+   RowBox[{"M", "=", 
+    SuperscriptBox["2", "n"]}], TraditionalForm]],ExpressionUUID->
+  "d7e94695-2a3e-4b88-a159-86c7bcd2bd8b"]
+}], "Subsection",
+ CellChangeTimes->{{3.7639090958726463`*^9, 3.763909100497306*^9}, {
+  3.764051000883543*^9, 
+  3.7640510038677063`*^9}},ExpressionUUID->"601abe6e-e0ca-4bf7-b982-\
+d2112bfeb35e"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{"apsk16fn0", "=", 
+   RowBox[{"Table", "[", 
+    RowBox[{
+     RowBox[{
+      RowBox[{"Flatten", "[", 
+       RowBox[{"APSKGen", "[", 
+        RowBox[{
+         RowBox[{"{", 
+          RowBox[{"1", ",", "3"}], "}"}], ",", "16"}], "]"}], "]"}], 
+      "\[Rule]", "\"\<16-APSK\>\""}], ",", 
+     RowBox[{"{", 
+      RowBox[{"p", ",", "1", ",", "2000", ",", "1"}], "}"}]}], "]"}]}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"apsk32fn0", "=", 
+   RowBox[{"Table", "[", 
+    RowBox[{
+     RowBox[{
+      RowBox[{"Flatten", "[", 
+       RowBox[{"APSKGen", "[", 
+        RowBox[{
+         RowBox[{"{", 
+          RowBox[{"1", ",", "3", ",", "5"}], "}"}], ",", "16"}], "]"}], "]"}],
+       "\[Rule]", "\"\<32-APSK\>\""}], ",", 
+     RowBox[{"{", 
+      RowBox[{"p", ",", "1", ",", "2000", ",", "1"}], "}"}]}], "]"}]}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"apsk64fn0", "=", 
+   RowBox[{"Table", "[", 
+    RowBox[{
+     RowBox[{
+      RowBox[{"Flatten", "[", 
+       RowBox[{"APSKGen", "[", 
+        RowBox[{
+         RowBox[{"{", 
+          RowBox[{"3", ",", "5", ",", "7", ",", "9"}], "}"}], ",", "16"}], 
+        "]"}], "]"}], "\[Rule]", "\"\<64-APSK\>\""}], ",", 
+     RowBox[{"{", 
+      RowBox[{"p", ",", "1", ",", "2000", ",", "1"}], "}"}]}], "]"}]}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"apsk128fn0", "=", 
+   RowBox[{"Table", "[", 
+    RowBox[{
+     RowBox[{
+      RowBox[{"Flatten", "[", 
+       RowBox[{"APSKGen", "[", 
+        RowBox[{
+         RowBox[{"{", 
+          RowBox[{"3", ",", "5", ",", "7", ",", "9", ",", "11", ",", "13"}], 
+          "}"}], ",", "16"}], "]"}], "]"}], "\[Rule]", "\"\<128-APSK\>\""}], 
+     ",", 
+     RowBox[{"{", 
+      RowBox[{"p", ",", "1", ",", "2000", ",", "1"}], "}"}]}], "]"}]}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"apsk256fn0", "=", 
+   RowBox[{"Table", "[", 
+    RowBox[{
+     RowBox[{
+      RowBox[{"Flatten", "[", 
+       RowBox[{"APSKGen", "[", 
+        RowBox[{
+         RowBox[{"{", 
+          RowBox[{
+          "5", ",", "7", ",", "9", ",", "11", ",", "13", ",", "15", ",", "17",
+            ",", "19"}], "}"}], ",", "16"}], "]"}], "]"}], "\[Rule]", 
+      "\"\<256-APSK\>\""}], ",", 
+     RowBox[{"{", 
+      RowBox[{"p", ",", "1", ",", "2000", ",", "1"}], "}"}]}], "]"}]}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"apskpretrainfn0", "=", 
+   RowBox[{"Flatten", "[", 
+    RowBox[{"Append", "[", 
+     RowBox[{
+      RowBox[{"Flatten", "[", 
+       RowBox[{"Append", "[", 
+        RowBox[{
+         RowBox[{"Flatten", "[", 
+          RowBox[{"Append", "[", 
+           RowBox[{
+            RowBox[{"Flatten", "[", 
+             RowBox[{"Append", "[", 
+              RowBox[{"apsk16fn0", ",", "apsk32fn0"}], "]"}], "]"}], ",", 
+            "apsk64fn0"}], "]"}], "]"}], ",", "apsk128fn0"}], "]"}], "]"}], 
+      ",", "apsk256fn0"}], "]"}], "]"}]}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"apsktrainfn0", "=", 
+   RowBox[{"RandomSample", "[", "apskpretrainfn0", "]"}]}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{"Export", "[", 
+  RowBox[{
+  "\"\<C:\\\\Modulation\\\\Sets\\\\APSK\\\\apskfn0.txt\>\"", ",", 
+   "apsktrainfn0", ",", "\"\<String\>\""}], "]"}]}], "Input",
+ CellChangeTimes->{{3.7639091153243914`*^9, 3.7639091464899445`*^9}, {
+  3.7639091770538*^9, 3.763909250404902*^9}, {3.763920380720427*^9, 
+  3.76392040703109*^9}, {3.76405148795413*^9, 3.7640515623789597`*^9}, {
+  3.7640516424058084`*^9, 3.7640516657185726`*^9}, {3.7645834850146284`*^9, 
+  3.76458348565442*^9}},
+ CellLabel->"In[49]:=",ExpressionUUID->"67b0469f-abc8-4bc0-a670-e4255830143c"],
+
+Cell[BoxData["\<\"C:\\\\Modulation\\\\Sets\\\\APSK\\\\apskfn0.txt\"\>"], \
+"Output",
+ CellChangeTimes->{3.7639093202881994`*^9, 3.763920520439148*^9, 
+  3.764051842340281*^9, 3.764583593298603*^9},
+ CellLabel->"Out[56]=",ExpressionUUID->"e8445898-e922-4d27-ab93-d3f212a26ddf"]
+}, Open  ]]
+}, Open  ]]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["\:0412\:044b\:0431\:043e\:0440\:043a\:0438 \:0441 \:0448\:0443\:043c\
+\:043e\:043c \[CapitalDelta]\[Element]{-0.1A, 0.1A}", "Subchapter",
+ CellChangeTimes->{{3.763908158840703*^9, 3.763908162496769*^9}, {
+  3.7639093720918503`*^9, 
+  3.7639093724512043`*^9}},ExpressionUUID->"4c028cb3-e839-416b-a792-\
+232200a49e89"],
+
+Cell[CellGroupData[{
+
+Cell[TextData[{
+ "16 \:043e\:0442\:0441\:0447\:0435\:0442\:043e\:0432, ",
+ Cell[BoxData[
+  FormBox[
+   RowBox[{"M", "=", 
+    SuperscriptBox["2", 
+     RowBox[{"2", "n"}]]}], TraditionalForm]],ExpressionUUID->
+  "0c54c12c-78e1-4f18-be35-bc5be78cfc71"]
+}], "Subsection",
+ CellChangeTimes->{{3.763908088064069*^9, 3.7639081382785387`*^9}, {
+  3.763908345020277*^9, 3.7639083508077793`*^9}, {3.7640522372773476`*^9, 
+  3.7640522375116625`*^9}},ExpressionUUID->"4b03f479-a6cd-4491-bf81-\
+c12902fcf236"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{"apsk16hn1", "=", 
+   RowBox[{"Table", "[", 
+    RowBox[{
+     RowBox[{
+      RowBox[{"Flatten", "[", 
+       RowBox[{"APSKGenInt", "[", 
+        RowBox[{
+         RowBox[{"{", 
+          RowBox[{"1", ",", "3"}], "}"}], ",", "16", ",", 
+         RowBox[{"-", "0.1"}], ",", "0.1"}], "]"}], "]"}], "\[Rule]", 
+      "\"\<16-APSK\>\""}], ",", 
+     RowBox[{"{", 
+      RowBox[{"p", ",", "1", ",", "3333", ",", "1"}], "}"}]}], "]"}]}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"apsk64hn1", "=", 
+   RowBox[{"Table", "[", 
+    RowBox[{
+     RowBox[{
+      RowBox[{"Flatten", "[", 
+       RowBox[{"APSKGenInt", "[", 
+        RowBox[{
+         RowBox[{"{", 
+          RowBox[{"3", ",", "5", ",", "7", ",", "9"}], "}"}], ",", "16", ",", 
+         RowBox[{"-", "0.1"}], ",", "0.1"}], "]"}], "]"}], "\[Rule]", 
+      "\"\<64-APSK\>\""}], ",", 
+     RowBox[{"{", 
+      RowBox[{"p", ",", "1", ",", "3334", ",", "1"}], "}"}]}], "]"}]}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"apsk256hn1", "=", 
+   RowBox[{"Table", "[", 
+    RowBox[{
+     RowBox[{
+      RowBox[{"Flatten", "[", 
+       RowBox[{"APSKGenInt", "[", 
+        RowBox[{
+         RowBox[{"{", 
+          RowBox[{
+          "5", ",", "7", ",", "9", ",", "11", ",", "13", ",", "15", ",", "17",
+            ",", "19"}], "}"}], ",", "16", ",", 
+         RowBox[{"-", "0.1"}], ",", "0.1"}], "]"}], "]"}], "\[Rule]", 
+      "\"\<256-APSK\>\""}], ",", 
+     RowBox[{"{", 
+      RowBox[{"p", ",", "1", ",", "3333", ",", "1"}], "}"}]}], "]"}]}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"apskpretrainhn1", "=", 
+   RowBox[{"Flatten", "[", 
+    RowBox[{"Append", "[", 
+     RowBox[{
+      RowBox[{"Flatten", "[", 
+       RowBox[{"Append", "[", 
+        RowBox[{"apsk16hn1", ",", "apsk64hn1"}], "]"}], "]"}], ",", 
+      "apsk256hn1"}], "]"}], "]"}]}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"apsktrainhn1", "=", 
+   RowBox[{"RandomSample", "[", "apskpretrainhn1", "]"}]}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{"Export", "[", 
+  RowBox[{
+  "\"\<C:\\\\Modulation\\\\Sets\\\\APSK\\\\apskhn1.txt\>\"", ",", 
+   "apsktrainhn1", ",", "\"\<String\>\""}], "]"}]}], "Input",
+ CellChangeTimes->{{3.763908219167996*^9, 3.7639082830343437`*^9}, {
+   3.7639083394804335`*^9, 3.7639083900437136`*^9}, {3.7639084291816077`*^9, 
+   3.7639084794743385`*^9}, 3.7639085312244406`*^9, {3.763908609004651*^9, 
+   3.7639088314760137`*^9}, {3.763908862085745*^9, 3.7639088654761972`*^9}, {
+   3.7639089057694125`*^9, 3.7639089705589952`*^9}, {3.763909396371406*^9, 
+   3.763909501487747*^9}, {3.764051876585019*^9, 3.7640519730070596`*^9}, {
+   3.7645834937088156`*^9, 3.764583494302623*^9}},
+ CellLabel->"In[57]:=",ExpressionUUID->"140abbc7-310d-485b-b12c-6dfc03d1e354"],
+
+Cell[BoxData["\<\"C:\\\\Modulation\\\\Sets\\\\APSK\\\\apskhn1.txt\"\>"], \
+"Output",
+ CellChangeTimes->{3.7639090185751896`*^9, 3.763909568204692*^9, 
+  3.7640520366533403`*^9, 3.7645836126263514`*^9},
+ CellLabel->"Out[62]=",ExpressionUUID->"7cbb7cfe-ca93-427b-9c29-03dffafd5fc3"]
+}, Open  ]]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[TextData[{
+ "16 \:043e\:0442\:0441\:0447\:0435\:0442\:043e\:0432, ",
+ Cell[BoxData[
+  FormBox[
+   RowBox[{"M", "=", 
+    SuperscriptBox["2", "n"]}], TraditionalForm]],ExpressionUUID->
+  "8e68c2e0-87fb-489c-8c65-a56cbbf98e06"]
+}], "Subsection",
+ CellChangeTimes->{{3.7639090958726463`*^9, 3.763909100497306*^9}, {
+  3.7640522445892696`*^9, 
+  3.7640522467766094`*^9}},ExpressionUUID->"bcdf3e63-765f-48f1-973f-\
+c5d461df5c7d"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{"apsk16fn1", "=", 
+   RowBox[{"Table", "[", 
+    RowBox[{
+     RowBox[{
+      RowBox[{"Flatten", "[", 
+       RowBox[{"APSKGenInt", "[", 
+        RowBox[{
+         RowBox[{"{", 
+          RowBox[{"1", ",", "3"}], "}"}], ",", "16", ",", 
+         RowBox[{"-", "0.1"}], ",", "0.1"}], "]"}], "]"}], "\[Rule]", 
+      "\"\<16-APSK\>\""}], ",", 
+     RowBox[{"{", 
+      RowBox[{"p", ",", "1", ",", "2000", ",", "1"}], "}"}]}], "]"}]}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"apsk32fn1", "=", 
+   RowBox[{"Table", "[", 
+    RowBox[{
+     RowBox[{
+      RowBox[{"Flatten", "[", 
+       RowBox[{"APSKGenInt", "[", 
+        RowBox[{
+         RowBox[{"{", 
+          RowBox[{"1", ",", "3", ",", "5"}], "}"}], ",", "16", ",", 
+         RowBox[{"-", "0.1"}], ",", "0.1"}], "]"}], "]"}], "\[Rule]", 
+      "\"\<32-APSK\>\""}], ",", 
+     RowBox[{"{", 
+      RowBox[{"p", ",", "1", ",", "2000", ",", "1"}], "}"}]}], "]"}]}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"apsk64fn1", "=", 
+   RowBox[{"Table", "[", 
+    RowBox[{
+     RowBox[{
+      RowBox[{"Flatten", "[", 
+       RowBox[{"APSKGenInt", "[", 
+        RowBox[{
+         RowBox[{"{", 
+          RowBox[{"3", ",", "5", ",", "7", ",", "9"}], "}"}], ",", "16", ",", 
+         RowBox[{"-", "0.1"}], ",", "0.1"}], "]"}], "]"}], "\[Rule]", 
+      "\"\<64-APSK\>\""}], ",", 
+     RowBox[{"{", 
+      RowBox[{"p", ",", "1", ",", "2000", ",", "1"}], "}"}]}], "]"}]}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"apsk128fn1", "=", 
+   RowBox[{"Table", "[", 
+    RowBox[{
+     RowBox[{
+      RowBox[{"Flatten", "[", 
+       RowBox[{"APSKGenInt", "[", 
+        RowBox[{
+         RowBox[{"{", 
+          RowBox[{"3", ",", "5", ",", "7", ",", "9", ",", "11", ",", "13"}], 
+          "}"}], ",", "16", ",", 
+         RowBox[{"-", "0.1"}], ",", "0.1"}], "]"}], "]"}], "\[Rule]", 
+      "\"\<128-APSK\>\""}], ",", 
+     RowBox[{"{", 
+      RowBox[{"p", ",", "1", ",", "2000", ",", "1"}], "}"}]}], "]"}]}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"apsk256fn1", "=", 
+   RowBox[{"Table", "[", 
+    RowBox[{
+     RowBox[{
+      RowBox[{"Flatten", "[", 
+       RowBox[{"APSKGenInt", "[", 
+        RowBox[{
+         RowBox[{"{", 
+          RowBox[{
+          "5", ",", "7", ",", "9", ",", "11", ",", "13", ",", "15", ",", "17",
+            ",", "19"}], "}"}], ",", "16", ",", 
+         RowBox[{"-", "0.1"}], ",", "0.1"}], "]"}], "]"}], "\[Rule]", 
+      "\"\<256-APSK\>\""}], ",", 
+     RowBox[{"{", 
+      RowBox[{"p", ",", "1", ",", "2000", ",", "1"}], "}"}]}], "]"}]}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"apskpretrainfn1", "=", 
+   RowBox[{"Flatten", "[", 
+    RowBox[{"Append", "[", 
+     RowBox[{
+      RowBox[{"Flatten", "[", 
+       RowBox[{"Append", "[", 
+        RowBox[{
+         RowBox[{"Flatten", "[", 
+          RowBox[{"Append", "[", 
+           RowBox[{
+            RowBox[{"Flatten", "[", 
+             RowBox[{"Append", "[", 
+              RowBox[{"apsk16fn1", ",", "apsk32fn1"}], "]"}], "]"}], ",", 
+            "apsk64fn1"}], "]"}], "]"}], ",", "apsk128fn1"}], "]"}], "]"}], 
+      ",", "apsk256fn1"}], "]"}], "]"}]}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"apsktrainfn1", "=", 
+   RowBox[{"RandomSample", "[", "apskpretrainfn1", "]"}]}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{"Export", "[", 
+  RowBox[{
+  "\"\<C:\\\\Modulation\\\\Sets\\\\APSK\\\\apskfn1.txt\>\"", ",", 
+   "apsktrainfn1", ",", "\"\<String\>\""}], "]"}]}], "Input",
+ CellChangeTimes->{{3.7639091153243914`*^9, 3.7639091464899445`*^9}, {
+  3.7639091770538*^9, 3.763909250404902*^9}, {3.763909585042821*^9, 
+  3.7639096914106565`*^9}, {3.7639205373398128`*^9, 3.7639205625880933`*^9}, {
+  3.764052066812965*^9, 3.764052142710684*^9}, {3.7645835067036133`*^9, 
+  3.764583507348406*^9}},
+ CellLabel->"In[63]:=",ExpressionUUID->"e5895dee-d1fe-402e-b467-2e368f828a3f"],
+
+Cell[BoxData["\<\"C:\\\\Modulation\\\\Sets\\\\APSK\\\\apskfn1.txt\"\>"], \
+"Output",
+ CellChangeTimes->{3.7639093202881994`*^9, 3.7639097518148313`*^9, 
+  3.7639206148410144`*^9, 3.7640522063747444`*^9, 3.7645836300117292`*^9},
+ CellLabel->"Out[70]=",ExpressionUUID->"2919266c-b380-43a9-a575-e733745c4ce6"]
+}, Open  ]]
+}, Open  ]]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["\:0412\:044b\:0431\:043e\:0440\:043a\:0438 \:0441 \:0448\:0443\:043c\
+\:043e\:043c \[CapitalDelta]\[Element]{-0.25A, 0.25A}", "Subchapter",
+ CellChangeTimes->{{3.763908158840703*^9, 3.763908162496769*^9}, {
+  3.7639093720918503`*^9, 3.7639093724512043`*^9}, {3.763909833073349*^9, 
+  3.76390983654181*^9}},ExpressionUUID->"bd57114c-d0b8-4d51-8120-\
+2627e3f6ed0c"],
+
+Cell[CellGroupData[{
+
+Cell[TextData[{
+ "16 \:043e\:0442\:0441\:0447\:0435\:0442\:043e\:0432, ",
+ Cell[BoxData[
+  FormBox[
+   RowBox[{"M", "=", 
+    SuperscriptBox["2", 
+     RowBox[{"2", "n"}]]}], TraditionalForm]],ExpressionUUID->
+  "33fcf397-ba66-4d4e-9b93-859f39a7c2f9"]
+}], "Subsection",
+ CellChangeTimes->{{3.763908088064069*^9, 3.7639081382785387`*^9}, {
+  3.763908345020277*^9, 3.7639083508077793`*^9}, {3.7640522372773476`*^9, 
+  3.7640522375116625`*^9}},ExpressionUUID->"92f37e19-80e2-4782-b00c-\
+ec105e487148"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{"apsk16hn2", "=", 
+   RowBox[{"Table", "[", 
+    RowBox[{
+     RowBox[{
+      RowBox[{"Flatten", "[", 
+       RowBox[{"APSKGenInt", "[", 
+        RowBox[{
+         RowBox[{"{", 
+          RowBox[{"1", ",", "3"}], "}"}], ",", "16", ",", 
+         RowBox[{"-", "0.25"}], ",", "0.25"}], "]"}], "]"}], "\[Rule]", 
+      "\"\<16-APSK\>\""}], ",", 
+     RowBox[{"{", 
+      RowBox[{"p", ",", "1", ",", "3333", ",", "1"}], "}"}]}], "]"}]}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"apsk64hn2", "=", 
+   RowBox[{"Table", "[", 
+    RowBox[{
+     RowBox[{
+      RowBox[{"Flatten", "[", 
+       RowBox[{"APSKGenInt", "[", 
+        RowBox[{
+         RowBox[{"{", 
+          RowBox[{"3", ",", "5", ",", "7", ",", "9"}], "}"}], ",", "16", ",", 
+         RowBox[{"-", "0.25"}], ",", "0.25"}], "]"}], "]"}], "\[Rule]", 
+      "\"\<64-APSK\>\""}], ",", 
+     RowBox[{"{", 
+      RowBox[{"p", ",", "1", ",", "3334", ",", "1"}], "}"}]}], "]"}]}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"apsk256hn2", "=", 
+   RowBox[{"Table", "[", 
+    RowBox[{
+     RowBox[{
+      RowBox[{"Flatten", "[", 
+       RowBox[{"APSKGenInt", "[", 
+        RowBox[{
+         RowBox[{"{", 
+          RowBox[{
+          "5", ",", "7", ",", "9", ",", "11", ",", "13", ",", "15", ",", "17",
+            ",", "19"}], "}"}], ",", "16", ",", 
+         RowBox[{"-", "0.25"}], ",", "0.25"}], "]"}], "]"}], "\[Rule]", 
+      "\"\<256-APSK\>\""}], ",", 
+     RowBox[{"{", 
+      RowBox[{"p", ",", "1", ",", "3333", ",", "1"}], "}"}]}], "]"}]}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"apskpretrainhn2", "=", 
+   RowBox[{"Flatten", "[", 
+    RowBox[{"Append", "[", 
+     RowBox[{
+      RowBox[{"Flatten", "[", 
+       RowBox[{"Append", "[", 
+        RowBox[{"apsk16hn2", ",", "apsk64hn2"}], "]"}], "]"}], ",", 
+      "apsk256hn2"}], "]"}], "]"}]}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"apsktrainhn2", "=", 
+   RowBox[{"RandomSample", "[", "apskpretrainhn2", "]"}]}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{"Export", "[", 
+  RowBox[{
+  "\"\<C:\\\\Modulation\\\\Sets\\\\APSK\\\\apskhn2.txt\>\"", ",", 
+   "apsktrainhn2", ",", "\"\<String\>\""}], "]"}]}], "Input",
+ CellChangeTimes->{{3.763908219167996*^9, 3.7639082830343437`*^9}, {
+   3.7639083394804335`*^9, 3.7639083900437136`*^9}, {3.7639084291816077`*^9, 
+   3.7639084794743385`*^9}, 3.7639085312244406`*^9, {3.763908609004651*^9, 
+   3.7639088314760137`*^9}, {3.763908862085745*^9, 3.7639088654761972`*^9}, {
+   3.7639089057694125`*^9, 3.7639089705589952`*^9}, {3.763909396371406*^9, 
+   3.763909501487747*^9}, {3.764051876585019*^9, 3.7640519730070596`*^9}, {
+   3.764052297214501*^9, 3.764052337027438*^9}, {3.764583513060557*^9, 
+   3.7645835137913203`*^9}},
+ CellLabel->"In[71]:=",ExpressionUUID->"bc1125cb-afea-4435-b8e0-e8396a13d976"],
+
+Cell[BoxData["\<\"C:\\\\Modulation\\\\Sets\\\\APSK\\\\apskhn2.txt\"\>"], \
+"Output",
+ CellChangeTimes->{3.7639090185751896`*^9, 3.763909568204692*^9, 
+  3.7640520366533403`*^9, 3.7640523997045517`*^9, 3.764583648972595*^9},
+ CellLabel->"Out[76]=",ExpressionUUID->"51912855-4de6-4a17-a2da-25e076918867"]
+}, Open  ]]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[TextData[{
+ "16 \:043e\:0442\:0441\:0447\:0435\:0442\:043e\:0432, ",
+ Cell[BoxData[
+  FormBox[
+   RowBox[{"M", "=", 
+    SuperscriptBox["2", "n"]}], TraditionalForm]],ExpressionUUID->
+  "e4dfdf64-9cfc-41c1-ad5a-7e612e33c746"]
+}], "Subsection",
+ CellChangeTimes->{{3.7639090958726463`*^9, 3.763909100497306*^9}, {
+  3.7640522445892696`*^9, 
+  3.7640522467766094`*^9}},ExpressionUUID->"52f8d813-faed-40e5-9abb-\
+aaa7c0dfad08"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{"apsk16fn2", "=", 
+   RowBox[{"Table", "[", 
+    RowBox[{
+     RowBox[{
+      RowBox[{"Flatten", "[", 
+       RowBox[{"APSKGenInt", "[", 
+        RowBox[{
+         RowBox[{"{", 
+          RowBox[{"1", ",", "3"}], "}"}], ",", "16", ",", 
+         RowBox[{"-", "0.25"}], ",", "0.25"}], "]"}], "]"}], "\[Rule]", 
+      "\"\<16-APSK\>\""}], ",", 
+     RowBox[{"{", 
+      RowBox[{"p", ",", "1", ",", "2000", ",", "1"}], "}"}]}], "]"}]}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"apsk32fn2", "=", 
+   RowBox[{"Table", "[", 
+    RowBox[{
+     RowBox[{
+      RowBox[{"Flatten", "[", 
+       RowBox[{"APSKGenInt", "[", 
+        RowBox[{
+         RowBox[{"{", 
+          RowBox[{"1", ",", "3", ",", "5"}], "}"}], ",", "16", ",", 
+         RowBox[{"-", "0.25"}], ",", "0.25"}], "]"}], "]"}], "\[Rule]", 
+      "\"\<32-APSK\>\""}], ",", 
+     RowBox[{"{", 
+      RowBox[{"p", ",", "1", ",", "2000", ",", "1"}], "}"}]}], "]"}]}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"apsk64fn2", "=", 
+   RowBox[{"Table", "[", 
+    RowBox[{
+     RowBox[{
+      RowBox[{"Flatten", "[", 
+       RowBox[{"APSKGenInt", "[", 
+        RowBox[{
+         RowBox[{"{", 
+          RowBox[{"3", ",", "5", ",", "7", ",", "9"}], "}"}], ",", "16", ",", 
+         RowBox[{"-", "0.25"}], ",", "0.25"}], "]"}], "]"}], "\[Rule]", 
+      "\"\<64-APSK\>\""}], ",", 
+     RowBox[{"{", 
+      RowBox[{"p", ",", "1", ",", "2000", ",", "1"}], "}"}]}], "]"}]}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"apsk128fn2", "=", 
+   RowBox[{"Table", "[", 
+    RowBox[{
+     RowBox[{
+      RowBox[{"Flatten", "[", 
+       RowBox[{"APSKGenInt", "[", 
+        RowBox[{
+         RowBox[{"{", 
+          RowBox[{"3", ",", "5", ",", "7", ",", "9", ",", "11", ",", "13"}], 
+          "}"}], ",", "16", ",", 
+         RowBox[{"-", "0.25"}], ",", "0.25"}], "]"}], "]"}], "\[Rule]", 
+      "\"\<128-APSK\>\""}], ",", 
+     RowBox[{"{", 
+      RowBox[{"p", ",", "1", ",", "2000", ",", "1"}], "}"}]}], "]"}]}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"apsk256fn2", "=", 
+   RowBox[{"Table", "[", 
+    RowBox[{
+     RowBox[{
+      RowBox[{"Flatten", "[", 
+       RowBox[{"APSKGenInt", "[", 
+        RowBox[{
+         RowBox[{"{", 
+          RowBox[{
+          "5", ",", "7", ",", "9", ",", "11", ",", "13", ",", "15", ",", "17",
+            ",", "19"}], "}"}], ",", "16", ",", 
+         RowBox[{"-", "0.25"}], ",", "0.25"}], "]"}], "]"}], "\[Rule]", 
+      "\"\<256-APSK\>\""}], ",", 
+     RowBox[{"{", 
+      RowBox[{"p", ",", "1", ",", "2000", ",", "1"}], "}"}]}], "]"}]}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"apskpretrainfn2", "=", 
+   RowBox[{"Flatten", "[", 
+    RowBox[{"Append", "[", 
+     RowBox[{
+      RowBox[{"Flatten", "[", 
+       RowBox[{"Append", "[", 
+        RowBox[{
+         RowBox[{"Flatten", "[", 
+          RowBox[{"Append", "[", 
+           RowBox[{
+            RowBox[{"Flatten", "[", 
+             RowBox[{"Append", "[", 
+              RowBox[{"apsk16fn2", ",", "apsk32fn2"}], "]"}], "]"}], ",", 
+            "apsk64fn2"}], "]"}], "]"}], ",", "apsk128fn2"}], "]"}], "]"}], 
+      ",", "apsk256fn2"}], "]"}], "]"}]}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"apsktrainfn2", "=", 
+   RowBox[{"RandomSample", "[", "apskpretrainfn2", "]"}]}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{"Export", "[", 
+  RowBox[{
+  "\"\<C:\\\\Modulation\\\\Sets\\\\APSK\\\\apskfn2.txt\>\"", ",", 
+   "apsktrainfn2", ",", "\"\<String\>\""}], "]"}]}], "Input",
+ CellChangeTimes->{{3.7639091153243914`*^9, 3.7639091464899445`*^9}, {
+  3.7639091770538*^9, 3.763909250404902*^9}, {3.763909585042821*^9, 
+  3.7639096914106565`*^9}, {3.7639205373398128`*^9, 3.7639205625880933`*^9}, {
+  3.764052066812965*^9, 3.764052142710684*^9}, {3.764052414568536*^9, 
+  3.7640524747920494`*^9}, {3.764583518671743*^9, 3.7645835192715473`*^9}},
+ CellLabel->"In[77]:=",ExpressionUUID->"d8e31c4d-ad93-4192-924f-cadeb21b24b7"],
+
+Cell[BoxData["\<\"C:\\\\Modulation\\\\Sets\\\\APSK\\\\apskfn2.txt\"\>"], \
+"Output",
+ CellChangeTimes->{3.7639093202881994`*^9, 3.7639097518148313`*^9, 
+  3.7639206148410144`*^9, 3.7640522063747444`*^9, 3.7640525665393105`*^9, 
+  3.7645836660610685`*^9},
+ CellLabel->"Out[84]=",ExpressionUUID->"cd0800b7-2c4f-4a07-a79d-514a0ec17968"]
+}, Open  ]]
+}, Open  ]]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["\:0412\:044b\:0431\:043e\:0440\:043a\:0438 \:0441 \:0448\:0443\:043c\
+\:043e\:043c \[CapitalDelta]\[Element]{-0.5A, 0.5A}", "Subchapter",
+ CellChangeTimes->{{3.763908158840703*^9, 3.763908162496769*^9}, {
+  3.7639093720918503`*^9, 3.7639093724512043`*^9}, {3.763909833073349*^9, 
+  3.76390983654181*^9}, {3.763910131685278*^9, 
+  3.763910132966377*^9}},ExpressionUUID->"2a8c55df-ddc1-4224-a481-\
+db5f298fea00"],
+
+Cell[CellGroupData[{
+
+Cell[TextData[{
+ "16 \:043e\:0442\:0441\:0447\:0435\:0442\:043e\:0432, ",
+ Cell[BoxData[
+  FormBox[
+   RowBox[{"M", "=", 
+    SuperscriptBox["2", 
+     RowBox[{"2", "n"}]]}], TraditionalForm]],ExpressionUUID->
+  "fbbadaaf-21b4-4373-8608-f3a979026c70"]
+}], "Subsection",
+ CellChangeTimes->{{3.763908088064069*^9, 3.7639081382785387`*^9}, {
+  3.763908345020277*^9, 3.7639083508077793`*^9}, {3.7640522372773476`*^9, 
+  3.7640522375116625`*^9}},ExpressionUUID->"338c47de-a05c-49eb-8ffc-\
+d5196e645501"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{"apsk16hn3", "=", 
+   RowBox[{"Table", "[", 
+    RowBox[{
+     RowBox[{
+      RowBox[{"Flatten", "[", 
+       RowBox[{"APSKGenInt", "[", 
+        RowBox[{
+         RowBox[{"{", 
+          RowBox[{"1", ",", "3"}], "}"}], ",", "16", ",", 
+         RowBox[{"-", "0.5"}], ",", "0.5"}], "]"}], "]"}], "\[Rule]", 
+      "\"\<16-APSK\>\""}], ",", 
+     RowBox[{"{", 
+      RowBox[{"p", ",", "1", ",", "3333", ",", "1"}], "}"}]}], "]"}]}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"apsk64hn3", "=", 
+   RowBox[{"Table", "[", 
+    RowBox[{
+     RowBox[{
+      RowBox[{"Flatten", "[", 
+       RowBox[{"APSKGenInt", "[", 
+        RowBox[{
+         RowBox[{"{", 
+          RowBox[{"3", ",", "5", ",", "7", ",", "9"}], "}"}], ",", "16", ",", 
+         RowBox[{"-", "0.5"}], ",", "0.5"}], "]"}], "]"}], "\[Rule]", 
+      "\"\<64-APSK\>\""}], ",", 
+     RowBox[{"{", 
+      RowBox[{"p", ",", "1", ",", "3334", ",", "1"}], "}"}]}], "]"}]}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"apsk256hn3", "=", 
+   RowBox[{"Table", "[", 
+    RowBox[{
+     RowBox[{
+      RowBox[{"Flatten", "[", 
+       RowBox[{"APSKGenInt", "[", 
+        RowBox[{
+         RowBox[{"{", 
+          RowBox[{
+          "5", ",", "7", ",", "9", ",", "11", ",", "13", ",", "15", ",", "17",
+            ",", "19"}], "}"}], ",", "16", ",", 
+         RowBox[{"-", "0.5"}], ",", "0.5"}], "]"}], "]"}], "\[Rule]", 
+      "\"\<256-APSK\>\""}], ",", 
+     RowBox[{"{", 
+      RowBox[{"p", ",", "1", ",", "3333", ",", "1"}], "}"}]}], "]"}]}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"apskpretrainhn3", "=", 
+   RowBox[{"Flatten", "[", 
+    RowBox[{"Append", "[", 
+     RowBox[{
+      RowBox[{"Flatten", "[", 
+       RowBox[{"Append", "[", 
+        RowBox[{"apsk16hn3", ",", "apsk64hn3"}], "]"}], "]"}], ",", 
+      "apsk256hn3"}], "]"}], "]"}]}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"apsktrainhn3", "=", 
+   RowBox[{"RandomSample", "[", "apskpretrainhn3", "]"}]}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{"Export", "[", 
+  RowBox[{
+  "\"\<C:\\\\Modulation\\\\Sets\\\\APSK\\\\apskhn3.txt\>\"", ",", 
+   "apsktrainhn3", ",", "\"\<String\>\""}], "]"}]}], "Input",
+ CellChangeTimes->{{3.763908219167996*^9, 3.7639082830343437`*^9}, {
+   3.7639083394804335`*^9, 3.7639083900437136`*^9}, {3.7639084291816077`*^9, 
+   3.7639084794743385`*^9}, 3.7639085312244406`*^9, {3.763908609004651*^9, 
+   3.7639088314760137`*^9}, {3.763908862085745*^9, 3.7639088654761972`*^9}, {
+   3.7639089057694125`*^9, 3.7639089705589952`*^9}, {3.763909396371406*^9, 
+   3.763909501487747*^9}, {3.764051876585019*^9, 3.7640519730070596`*^9}, {
+   3.764052297214501*^9, 3.764052337027438*^9}, {3.7640526063321915`*^9, 
+   3.764052649584751*^9}, {3.7645835263172693`*^9, 3.7645835269320717`*^9}},
+ CellLabel->"In[85]:=",ExpressionUUID->"44c169ba-c6c4-4a22-8084-489acb91c268"],
+
+Cell[BoxData["\<\"C:\\\\Modulation\\\\Sets\\\\APSK\\\\apskhn3.txt\"\>"], \
+"Output",
+ CellChangeTimes->{3.7639090185751896`*^9, 3.763909568204692*^9, 
+  3.7640520366533403`*^9, 3.7640523997045517`*^9, 3.7640527040267553`*^9, 
+  3.7645836852518616`*^9},
+ CellLabel->"Out[90]=",ExpressionUUID->"57e3ee75-848e-4eb6-ba00-0e757a92c4ad"]
+}, Open  ]]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[TextData[{
+ "16 \:043e\:0442\:0441\:0447\:0435\:0442\:043e\:0432, ",
+ Cell[BoxData[
+  FormBox[
+   RowBox[{"M", "=", 
+    SuperscriptBox["2", "n"]}], TraditionalForm]],ExpressionUUID->
+  "8dc49b30-96a4-4138-ac0d-a8ea8a99b7f3"]
+}], "Subsection",
+ CellChangeTimes->{{3.7639090958726463`*^9, 3.763909100497306*^9}, {
+  3.7640522445892696`*^9, 
+  3.7640522467766094`*^9}},ExpressionUUID->"97fee584-6df5-41bb-89c9-\
+dc8366215ef5"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{"apsk16fn3", "=", 
+   RowBox[{"Table", "[", 
+    RowBox[{
+     RowBox[{
+      RowBox[{"Flatten", "[", 
+       RowBox[{"APSKGenInt", "[", 
+        RowBox[{
+         RowBox[{"{", 
+          RowBox[{"1", ",", "3"}], "}"}], ",", "16", ",", 
+         RowBox[{"-", "0.5"}], ",", "0.5"}], "]"}], "]"}], "\[Rule]", 
+      "\"\<16-APSK\>\""}], ",", 
+     RowBox[{"{", 
+      RowBox[{"p", ",", "1", ",", "2000", ",", "1"}], "}"}]}], "]"}]}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"apsk32fn3", "=", 
+   RowBox[{"Table", "[", 
+    RowBox[{
+     RowBox[{
+      RowBox[{"Flatten", "[", 
+       RowBox[{"APSKGenInt", "[", 
+        RowBox[{
+         RowBox[{"{", 
+          RowBox[{"1", ",", "3", ",", "5"}], "}"}], ",", "16", ",", 
+         RowBox[{"-", "0.5"}], ",", "0.5"}], "]"}], "]"}], "\[Rule]", 
+      "\"\<32-APSK\>\""}], ",", 
+     RowBox[{"{", 
+      RowBox[{"p", ",", "1", ",", "2000", ",", "1"}], "}"}]}], "]"}]}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"apsk64fn3", "=", 
+   RowBox[{"Table", "[", 
+    RowBox[{
+     RowBox[{
+      RowBox[{"Flatten", "[", 
+       RowBox[{"APSKGenInt", "[", 
+        RowBox[{
+         RowBox[{"{", 
+          RowBox[{"3", ",", "5", ",", "7", ",", "9"}], "}"}], ",", "16", ",", 
+         RowBox[{"-", "0.5"}], ",", "0.5"}], "]"}], "]"}], "\[Rule]", 
+      "\"\<64-APSK\>\""}], ",", 
+     RowBox[{"{", 
+      RowBox[{"p", ",", "1", ",", "2000", ",", "1"}], "}"}]}], "]"}]}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"apsk128fn3", "=", 
+   RowBox[{"Table", "[", 
+    RowBox[{
+     RowBox[{
+      RowBox[{"Flatten", "[", 
+       RowBox[{"APSKGenInt", "[", 
+        RowBox[{
+         RowBox[{"{", 
+          RowBox[{"3", ",", "5", ",", "7", ",", "9", ",", "11", ",", "13"}], 
+          "}"}], ",", "16", ",", 
+         RowBox[{"-", "0.5"}], ",", "0.5"}], "]"}], "]"}], "\[Rule]", 
+      "\"\<128-APSK\>\""}], ",", 
+     RowBox[{"{", 
+      RowBox[{"p", ",", "1", ",", "2000", ",", "1"}], "}"}]}], "]"}]}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"apsk256fn3", "=", 
+   RowBox[{"Table", "[", 
+    RowBox[{
+     RowBox[{
+      RowBox[{"Flatten", "[", 
+       RowBox[{"APSKGenInt", "[", 
+        RowBox[{
+         RowBox[{"{", 
+          RowBox[{
+          "5", ",", "7", ",", "9", ",", "11", ",", "13", ",", "15", ",", "17",
+            ",", "19"}], "}"}], ",", "16", ",", 
+         RowBox[{"-", "0.5"}], ",", "0.5"}], "]"}], "]"}], "\[Rule]", 
+      "\"\<256-APSK\>\""}], ",", 
+     RowBox[{"{", 
+      RowBox[{"p", ",", "1", ",", "2000", ",", "1"}], "}"}]}], "]"}]}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"apskpretrainfn3", "=", 
+   RowBox[{"Flatten", "[", 
+    RowBox[{"Append", "[", 
+     RowBox[{
+      RowBox[{"Flatten", "[", 
+       RowBox[{"Append", "[", 
+        RowBox[{
+         RowBox[{"Flatten", "[", 
+          RowBox[{"Append", "[", 
+           RowBox[{
+            RowBox[{"Flatten", "[", 
+             RowBox[{"Append", "[", 
+              RowBox[{"apsk16fn3", ",", "apsk32fn3"}], "]"}], "]"}], ",", 
+            "apsk64fn3"}], "]"}], "]"}], ",", "apsk128fn3"}], "]"}], "]"}], 
+      ",", "apsk256fn3"}], "]"}], "]"}]}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"apsktrainfn3", "=", 
+   RowBox[{"RandomSample", "[", "apskpretrainfn3", "]"}]}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{"Export", "[", 
+  RowBox[{
+  "\"\<C:\\\\Modulation\\\\Sets\\\\APSK\\\\apskfn3.txt\>\"", ",", 
+   "apsktrainfn3", ",", "\"\<String\>\""}], "]"}]}], "Input",
+ CellChangeTimes->{{3.7639091153243914`*^9, 3.7639091464899445`*^9}, {
+  3.7639091770538*^9, 3.763909250404902*^9}, {3.763909585042821*^9, 
+  3.7639096914106565`*^9}, {3.7639205373398128`*^9, 3.7639205625880933`*^9}, {
+  3.764052066812965*^9, 3.764052142710684*^9}, {3.764052414568536*^9, 
+  3.7640524747920494`*^9}, {3.764052761614558*^9, 3.764052828192264*^9}, {
+  3.764583533205041*^9, 3.764583534243705*^9}},
+ CellLabel->"In[91]:=",ExpressionUUID->"b67688f6-536f-4eb7-bf6f-0f552c757fbb"],
+
+Cell[BoxData["\<\"C:\\\\Modulation\\\\Sets\\\\APSK\\\\apskfn3.txt\"\>"], \
+"Output",
+ CellChangeTimes->{3.7639093202881994`*^9, 3.7639097518148313`*^9, 
+  3.7639206148410144`*^9, 3.7640522063747444`*^9, 3.7640525665393105`*^9, 
+  3.7640528721951785`*^9, 3.7645837022713566`*^9},
+ CellLabel->"Out[98]=",ExpressionUUID->"d22ffe7a-4ee7-4cb5-9f82-136ac2c5514b"]
+}, Open  ]]
+}, Open  ]]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["\:0412\:044b\:0431\:043e\:0440\:043a\:0438 \:0441 \:0448\:0443\:043c\
+\:043e\:043c \[CapitalDelta]\[Element]{-1A, 1A}", "Subchapter",
+ CellChangeTimes->{{3.763908158840703*^9, 3.763908162496769*^9}, {
+  3.7639093720918503`*^9, 3.7639093724512043`*^9}, {3.763909833073349*^9, 
+  3.76390983654181*^9}, {3.763910131685278*^9, 3.763910132966377*^9}, {
+  3.7639104231351795`*^9, 
+  3.7639104275411196`*^9}},ExpressionUUID->"3cd6238c-e11c-45ff-ad18-\
+63dab4a8a454"],
+
+Cell[CellGroupData[{
+
+Cell[TextData[{
+ "16 \:043e\:0442\:0441\:0447\:0435\:0442\:043e\:0432, ",
+ Cell[BoxData[
+  FormBox[
+   RowBox[{"M", "=", 
+    SuperscriptBox["2", 
+     RowBox[{"2", "n"}]]}], TraditionalForm]],ExpressionUUID->
+  "90db7aa9-43a3-468e-8bc1-df68c228e197"]
+}], "Subsection",
+ CellChangeTimes->{{3.763908088064069*^9, 3.7639081382785387`*^9}, {
+  3.763908345020277*^9, 3.7639083508077793`*^9}, {3.7640522372773476`*^9, 
+  3.7640522375116625`*^9}},ExpressionUUID->"14235c00-8a60-48c9-b7c9-\
+68264f58f356"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{"apsk16hn4", "=", 
+   RowBox[{"Table", "[", 
+    RowBox[{
+     RowBox[{
+      RowBox[{"Flatten", "[", 
+       RowBox[{"APSKGenInt", "[", 
+        RowBox[{
+         RowBox[{"{", 
+          RowBox[{"1", ",", "3"}], "}"}], ",", "16", ",", 
+         RowBox[{"-", "1"}], ",", "1"}], "]"}], "]"}], "\[Rule]", 
+      "\"\<16-APSK\>\""}], ",", 
+     RowBox[{"{", 
+      RowBox[{"p", ",", "1", ",", "3333", ",", "1"}], "}"}]}], "]"}]}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"apsk64hn4", "=", 
+   RowBox[{"Table", "[", 
+    RowBox[{
+     RowBox[{
+      RowBox[{"Flatten", "[", 
+       RowBox[{"APSKGenInt", "[", 
+        RowBox[{
+         RowBox[{"{", 
+          RowBox[{"3", ",", "5", ",", "7", ",", "9"}], "}"}], ",", "16", ",", 
+         RowBox[{"-", "1"}], ",", "1"}], "]"}], "]"}], "\[Rule]", 
+      "\"\<64-APSK\>\""}], ",", 
+     RowBox[{"{", 
+      RowBox[{"p", ",", "1", ",", "3334", ",", "1"}], "}"}]}], "]"}]}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"apsk256hn4", "=", 
+   RowBox[{"Table", "[", 
+    RowBox[{
+     RowBox[{
+      RowBox[{"Flatten", "[", 
+       RowBox[{"APSKGenInt", "[", 
+        RowBox[{
+         RowBox[{"{", 
+          RowBox[{
+          "5", ",", "7", ",", "9", ",", "11", ",", "13", ",", "15", ",", "17",
+            ",", "19"}], "}"}], ",", "16", ",", 
+         RowBox[{"-", "1"}], ",", "1"}], "]"}], "]"}], "\[Rule]", 
+      "\"\<256-APSK\>\""}], ",", 
+     RowBox[{"{", 
+      RowBox[{"p", ",", "1", ",", "3333", ",", "1"}], "}"}]}], "]"}]}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"apskpretrainhn4", "=", 
+   RowBox[{"Flatten", "[", 
+    RowBox[{"Append", "[", 
+     RowBox[{
+      RowBox[{"Flatten", "[", 
+       RowBox[{"Append", "[", 
+        RowBox[{"apsk16hn4", ",", "apsk64hn4"}], "]"}], "]"}], ",", 
+      "apsk256hn4"}], "]"}], "]"}]}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"apsktrainhn4", "=", 
+   RowBox[{"RandomSample", "[", "apskpretrainhn4", "]"}]}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{"Export", "[", 
+  RowBox[{
+  "\"\<C:\\\\Modulation\\\\Sets\\\\APSK\\\\apskhn4.txt\>\"", ",", 
+   "apsktrainhn4", ",", "\"\<String\>\""}], "]"}]}], "Input",
+ CellChangeTimes->{{3.763908219167996*^9, 3.7639082830343437`*^9}, {
+   3.7639083394804335`*^9, 3.7639083900437136`*^9}, {3.7639084291816077`*^9, 
+   3.7639084794743385`*^9}, 3.7639085312244406`*^9, {3.763908609004651*^9, 
+   3.7639088314760137`*^9}, {3.763908862085745*^9, 3.7639088654761972`*^9}, {
+   3.7639089057694125`*^9, 3.7639089705589952`*^9}, {3.763909396371406*^9, 
+   3.763909501487747*^9}, {3.764051876585019*^9, 3.7640519730070596`*^9}, {
+   3.764052297214501*^9, 3.764052337027438*^9}, {3.7640526063321915`*^9, 
+   3.764052649584751*^9}, {3.764052908912869*^9, 3.7640529466934147`*^9}, {
+   3.764583539962855*^9, 3.7645835410984883`*^9}},
+ CellLabel->"In[99]:=",ExpressionUUID->"92bb6213-7cad-4802-adb4-25e0c0fc16a7"],
+
+Cell[BoxData["\<\"C:\\\\Modulation\\\\Sets\\\\APSK\\\\apskhn4.txt\"\>"], \
+"Output",
+ CellChangeTimes->{3.7639090185751896`*^9, 3.763909568204692*^9, 
+  3.7640520366533403`*^9, 3.7640523997045517`*^9, 3.7640527040267553`*^9, 
+  3.764053047465805*^9, 3.7645837213501854`*^9},
+ CellLabel->
+  "Out[104]=",ExpressionUUID->"cf1352ce-6613-4a3c-95f1-62a08f654cf8"]
+}, Open  ]]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[TextData[{
+ "16 \:043e\:0442\:0441\:0447\:0435\:0442\:043e\:0432, ",
+ Cell[BoxData[
+  FormBox[
+   RowBox[{"M", "=", 
+    SuperscriptBox["2", "n"]}], TraditionalForm]],ExpressionUUID->
+  "83523d91-3e3b-40d5-8a32-57345970fde7"]
+}], "Subsection",
+ CellChangeTimes->{{3.7639090958726463`*^9, 3.763909100497306*^9}, {
+  3.7640522445892696`*^9, 
+  3.7640522467766094`*^9}},ExpressionUUID->"828fbb37-c231-4b21-a95e-\
+0493a0362103"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{"apsk16fn4", "=", 
+   RowBox[{"Table", "[", 
+    RowBox[{
+     RowBox[{
+      RowBox[{"Flatten", "[", 
+       RowBox[{"APSKGenInt", "[", 
+        RowBox[{
+         RowBox[{"{", 
+          RowBox[{"1", ",", "3"}], "}"}], ",", "16", ",", 
+         RowBox[{"-", "1"}], ",", "1"}], "]"}], "]"}], "\[Rule]", 
+      "\"\<16-APSK\>\""}], ",", 
+     RowBox[{"{", 
+      RowBox[{"p", ",", "1", ",", "2000", ",", "1"}], "}"}]}], "]"}]}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"apsk32fn4", "=", 
+   RowBox[{"Table", "[", 
+    RowBox[{
+     RowBox[{
+      RowBox[{"Flatten", "[", 
+       RowBox[{"APSKGenInt", "[", 
+        RowBox[{
+         RowBox[{"{", 
+          RowBox[{"1", ",", "3", ",", "5"}], "}"}], ",", "16", ",", 
+         RowBox[{"-", "1"}], ",", "1"}], "]"}], "]"}], "\[Rule]", 
+      "\"\<32-APSK\>\""}], ",", 
+     RowBox[{"{", 
+      RowBox[{"p", ",", "1", ",", "2000", ",", "1"}], "}"}]}], "]"}]}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"apsk64fn4", "=", 
+   RowBox[{"Table", "[", 
+    RowBox[{
+     RowBox[{
+      RowBox[{"Flatten", "[", 
+       RowBox[{"APSKGenInt", "[", 
+        RowBox[{
+         RowBox[{"{", 
+          RowBox[{"3", ",", "5", ",", "7", ",", "9"}], "}"}], ",", "16", ",", 
+         RowBox[{"-", "1"}], ",", "1"}], "]"}], "]"}], "\[Rule]", 
+      "\"\<64-APSK\>\""}], ",", 
+     RowBox[{"{", 
+      RowBox[{"p", ",", "1", ",", "2000", ",", "1"}], "}"}]}], "]"}]}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"apsk128fn4", "=", 
+   RowBox[{"Table", "[", 
+    RowBox[{
+     RowBox[{
+      RowBox[{"Flatten", "[", 
+       RowBox[{"APSKGenInt", "[", 
+        RowBox[{
+         RowBox[{"{", 
+          RowBox[{"3", ",", "5", ",", "7", ",", "9", ",", "11", ",", "13"}], 
+          "}"}], ",", "16", ",", 
+         RowBox[{"-", "1"}], ",", "1"}], "]"}], "]"}], "\[Rule]", 
+      "\"\<128-APSK\>\""}], ",", 
+     RowBox[{"{", 
+      RowBox[{"p", ",", "1", ",", "2000", ",", "1"}], "}"}]}], "]"}]}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"apsk256fn4", "=", 
+   RowBox[{"Table", "[", 
+    RowBox[{
+     RowBox[{
+      RowBox[{"Flatten", "[", 
+       RowBox[{"APSKGenInt", "[", 
+        RowBox[{
+         RowBox[{"{", 
+          RowBox[{
+          "5", ",", "7", ",", "9", ",", "11", ",", "13", ",", "15", ",", "17",
+            ",", "19"}], "}"}], ",", "16", ",", 
+         RowBox[{"-", "1"}], ",", "1"}], "]"}], "]"}], "\[Rule]", 
+      "\"\<256-APSK\>\""}], ",", 
+     RowBox[{"{", 
+      RowBox[{"p", ",", "1", ",", "2000", ",", "1"}], "}"}]}], "]"}]}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"apskpretrainfn4", "=", 
+   RowBox[{"Flatten", "[", 
+    RowBox[{"Append", "[", 
+     RowBox[{
+      RowBox[{"Flatten", "[", 
+       RowBox[{"Append", "[", 
+        RowBox[{
+         RowBox[{"Flatten", "[", 
+          RowBox[{"Append", "[", 
+           RowBox[{
+            RowBox[{"Flatten", "[", 
+             RowBox[{"Append", "[", 
+              RowBox[{"apsk16fn4", ",", "apsk32fn4"}], "]"}], "]"}], ",", 
+            "apsk64fn4"}], "]"}], "]"}], ",", "apsk128fn4"}], "]"}], "]"}], 
+      ",", "apsk256fn4"}], "]"}], "]"}]}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"apsktrainfn4", "=", 
+   RowBox[{"RandomSample", "[", "apskpretrainfn4", "]"}]}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{"Export", "[", 
+  RowBox[{
+  "\"\<C:\\\\Modulation\\\\Sets\\\\APSK\\\\apskfn4.txt\>\"", ",", 
+   "apsktrainfn4", ",", "\"\<String\>\""}], "]"}]}], "Input",
+ CellChangeTimes->{{3.7639091153243914`*^9, 3.7639091464899445`*^9}, {
+  3.7639091770538*^9, 3.763909250404902*^9}, {3.763909585042821*^9, 
+  3.7639096914106565`*^9}, {3.7639205373398128`*^9, 3.7639205625880933`*^9}, {
+  3.764052066812965*^9, 3.764052142710684*^9}, {3.764052414568536*^9, 
+  3.7640524747920494`*^9}, {3.764052761614558*^9, 3.764052828192264*^9}, {
+  3.764053091358269*^9, 3.7640531671096835`*^9}, {3.7645835468726215`*^9, 
+  3.7645835479412727`*^9}},
+ CellLabel->
+  "In[105]:=",ExpressionUUID->"15b0c901-317b-4535-a04f-c6e159684494"],
+
+Cell[BoxData["\<\"C:\\\\Modulation\\\\Sets\\\\APSK\\\\apskfn4.txt\"\>"], \
+"Output",
+ CellChangeTimes->{3.7639093202881994`*^9, 3.7639097518148313`*^9, 
+  3.7639206148410144`*^9, 3.7640522063747444`*^9, 3.7640525665393105`*^9, 
+  3.7640528721951785`*^9, 3.764053216198539*^9, 3.7645837383097005`*^9},
+ CellLabel->
+  "Out[112]=",ExpressionUUID->"1d292126-c3fe-4aca-a508-5feb889c32b0"]
+}, Open  ]]
+}, Open  ]]
+}, Open  ]]
+}, Open  ]]
+}, Open  ]]
+},
+WindowSize->{1920, 997},
+WindowMargins->{{-8, Automatic}, {Automatic, -8}},
+FrontEndVersion->"12.0 for Microsoft Windows (64-bit) (April 8, 2019)",
+StyleDefinitions->"Default.nb"
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[CellGroupData[{
+Cell[580, 22, 246, 4, 96, "Title",ExpressionUUID->"70e0d1d1-7c89-47a5-bd10-191a2019266e"],
+Cell[CellGroupData[{
+Cell[851, 30, 151, 3, 67, "Chapter",ExpressionUUID->"59ba5306-896a-47f1-a338-785f94dbfb41"],
+Cell[CellGroupData[{
+Cell[1027, 37, 236, 4, 64, "Subchapter",ExpressionUUID->"4c5e2236-3b3a-4351-ad5b-7121cddd17b2"],
+Cell[CellGroupData[{
+Cell[1288, 45, 498, 12, 53, "Subsection",ExpressionUUID->"9c1cea87-ee9f-4874-8efd-ba77b19f3d3f"],
+Cell[CellGroupData[{
+Cell[1811, 61, 2683, 70, 230, "Input",ExpressionUUID->"009143bc-b437-4624-bf11-5dea9edc21fd"],
+Cell[4497, 133, 258, 4, 32, "Output",ExpressionUUID->"0fbf70d3-72ee-468f-8615-4ac632ab7df3"]
+}, Open  ]]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[4804, 143, 427, 11, 53, "Subsection",ExpressionUUID->"601abe6e-e0ca-4bf7-b982-d2112bfeb35e"],
+Cell[CellGroupData[{
+Cell[5256, 158, 3637, 103, 304, "Input",ExpressionUUID->"67b0469f-abc8-4bc0-a670-e4255830143c"],
+Cell[8896, 263, 276, 4, 32, "Output",ExpressionUUID->"e8445898-e922-4d27-ab93-d3f212a26ddf"]
+}, Open  ]]
+}, Open  ]]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[9233, 274, 322, 5, 64, "Subchapter",ExpressionUUID->"4c028cb3-e839-416b-a792-232200a49e89"],
+Cell[CellGroupData[{
+Cell[9580, 283, 498, 12, 53, "Subsection",ExpressionUUID->"4b03f479-a6cd-4491-bf81-c12902fcf236"],
+Cell[CellGroupData[{
+Cell[10103, 299, 2781, 72, 230, "Input",ExpressionUUID->"140abbc7-310d-485b-b12c-6dfc03d1e354"],
+Cell[12887, 373, 280, 4, 32, "Output",ExpressionUUID->"7cbb7cfe-ca93-427b-9c29-03dffafd5fc3"]
+}, Open  ]]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[13216, 383, 429, 11, 53, "Subsection",ExpressionUUID->"bcdf3e63-765f-48f1-973f-c5d461df5c7d"],
+Cell[CellGroupData[{
+Cell[13670, 398, 3899, 108, 304, "Input",ExpressionUUID->"e5895dee-d1fe-402e-b467-2e368f828a3f"],
+Cell[17572, 508, 306, 4, 32, "Output",ExpressionUUID->"2919266c-b380-43a9-a575-e733745c4ce6"]
+}, Open  ]]
+}, Open  ]]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[17939, 519, 369, 5, 64, "Subchapter",ExpressionUUID->"bd57114c-d0b8-4d51-8120-2627e3f6ed0c"],
+Cell[CellGroupData[{
+Cell[18333, 528, 498, 12, 53, "Subsection",ExpressionUUID->"92f37e19-80e2-4782-b00c-ec105e487148"],
+Cell[CellGroupData[{
+Cell[18856, 544, 2837, 73, 230, "Input",ExpressionUUID->"bc1125cb-afea-4435-b8e0-e8396a13d976"],
+Cell[21696, 619, 302, 4, 32, "Output",ExpressionUUID->"51912855-4de6-4a17-a2da-25e076918867"]
+}, Open  ]]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[22047, 629, 429, 11, 53, "Subsection",ExpressionUUID->"52f8d813-faed-40e5-9abb-aaa7c0dfad08"],
+Cell[CellGroupData[{
+Cell[22501, 644, 3957, 108, 304, "Input",ExpressionUUID->"d8e31c4d-ad93-4192-924f-cadeb21b24b7"],
+Cell[26461, 754, 333, 5, 32, "Output",ExpressionUUID->"cd0800b7-2c4f-4a07-a79d-514a0ec17968"]
+}, Open  ]]
+}, Open  ]]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[26855, 766, 416, 6, 64, "Subchapter",ExpressionUUID->"2a8c55df-ddc1-4224-a481-db5f298fea00"],
+Cell[CellGroupData[{
+Cell[27296, 776, 498, 12, 53, "Subsection",ExpressionUUID->"338c47de-a05c-49eb-8ffc-d5196e645501"],
+Cell[CellGroupData[{
+Cell[27819, 792, 2881, 73, 230, "Input",ExpressionUUID->"44c169ba-c6c4-4a22-8084-489acb91c268"],
+Cell[30703, 867, 331, 5, 32, "Output",ExpressionUUID->"57e3ee75-848e-4eb6-ba00-0e757a92c4ad"]
+}, Open  ]]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[31083, 878, 429, 11, 53, "Subsection",ExpressionUUID->"97fee584-6df5-41bb-89c9-dc8366215ef5"],
+Cell[CellGroupData[{
+Cell[31537, 893, 3994, 109, 304, "Input",ExpressionUUID->"b67688f6-536f-4eb7-bf6f-0f552c757fbb"],
+Cell[35534, 1004, 357, 5, 32, "Output",ExpressionUUID->"d22ffe7a-4ee7-4cb5-9f82-136ac2c5514b"]
+}, Open  ]]
+}, Open  ]]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[35952, 1016, 465, 7, 64, "Subchapter",ExpressionUUID->"3cd6238c-e11c-45ff-ad18-63dab4a8a454"],
+Cell[CellGroupData[{
+Cell[36442, 1027, 498, 12, 53, "Subsection",ExpressionUUID->"14235c00-8a60-48c9-b7c9-68264f58f356"],
+Cell[CellGroupData[{
+Cell[36965, 1043, 2919, 74, 230, "Input",ExpressionUUID->"92bb6213-7cad-4802-adb4-25e0c0fc16a7"],
+Cell[39887, 1119, 357, 6, 32, "Output",ExpressionUUID->"cf1352ce-6613-4a3c-95f1-62a08f654cf8"]
+}, Open  ]]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[40293, 1131, 429, 11, 53, "Subsection",ExpressionUUID->"828fbb37-c231-4b21-a95e-0493a0362103"],
+Cell[CellGroupData[{
+Cell[40747, 1146, 4033, 111, 304, "Input",ExpressionUUID->"15b0c901-317b-4535-a04f-c6e159684494"],
+Cell[44783, 1259, 383, 6, 89, "Output",ExpressionUUID->"1d292126-c3fe-4aca-a508-5feb889c32b0"]
+}, Open  ]]
+}, Open  ]]
+}, Open  ]]
+}, Open  ]]
+}, Open  ]]
+}
+]
+*)
+
