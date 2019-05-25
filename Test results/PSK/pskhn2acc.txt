@@ -1,0 +1,1 @@
+{{1, ELU, ELU, 0.929125}, {2, ELU, SELU, 0.944875}, {3, ELU, ReLU, 0.92125}, {4, ELU, SoftPlus, 0.93725}, {5, ELU, SoftSign, 0.951125}, {6, ELU, Sigmoid, 0.95175}, {7, ELU, HardSigmoid, 0.9495}, {8, ELU, HardTanh, 0.94625}, {9, SELU, HardSigmoid, 0.907375}, {10, SELU, Sigmoid, 0.919125}}
